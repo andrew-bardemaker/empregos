@@ -1,0 +1,129 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Mensagens / Usuários</li>
+                <li>Estatísticas</li>
+            </ul>
+            <h4>Mensagens / Usuários</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dados Mensagem</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Título</label>                            
+                                <input type="text" name="" value="{titulo}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Texto</label>                            
+                                <textarea class="form-control" name="texto" rows="8" readonly="readonly">{texto}</textarea>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Destinatários *</label>
+                                <div class="radio block"><label><input type="radio" name="participantes" value="1" disabled {usuarios_proclube}> Todos Usuários bejobs App</label></div>
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="2" disabled {grupos_economicos}> Grupos Econômicos</label></div> -->
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="3" disabled {lojas}> Lojas</label></div> -->
+                                <div class="radio block"><label><input type="radio" name="participantes" value="4" disabled {grupos_usuarios}> Grupos de Usuários</label></div>
+                                <div class="radio block"><label><input type="radio" name="participantes" value="5" disabled {usuarios_individual}> Usuários Individual</label></div>
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="6" disabled {usuarios_reputacao}> Reputação Usuários</label></div> -->
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-12">
+                            <hr>
+                            <h4>Imagem Mensagem</h4>
+                            <!-- START BLOCK : img -->
+                            <div class="row media-manager">
+                                <div class="col-xs-12 col-sm-4 col-md-4 document">
+                                    <div class="thmb">
+                                        <div class="btn-group fm-group">
+                                            <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                <li><a href="../images/mensagens/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                <!-- <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'news_delete_img')"><i class="fa fa-trash-o"></i> Delete</a></li> -->
+                                            </ul>
+                                        </div>
+                                        <div class="thmb-prev">
+                                            <img src="../images/mensagens/{id}.jpg" class="img-responsive" alt="" />
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                            <!-- END BLOCK : img -->
+
+                            <!-- START BLOCK : noimg -->
+                            <p>Nenhuma imagem encontrada.</p>
+                           <!-- END BLOCK : noimg --> 
+                        </div>                   
+                    </div>
+
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-sm-6 text-center">
+                            <h5 class="text-uppercase">Total Lidas</h5>
+                            <h2 class="mt10">{total_lidas}</h2>
+                        </div>
+                        <div class="col-sm-6 text-center">
+                            <h5 class="text-uppercase">Total Não Lidas</h5>
+                            <h2 class="mt10">{total_nao_lidas}</h2>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="list_usuarios_notificacoes" class="table table-striped table-bordered responsive">
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>CPF</th>
+                                        <th>Email</th>
+                                        <th>Telefone Celular</th>
+                                        <!-- <th>Regional</th> -->
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>      
+
+                                <!-- START BLOCK : usuarios_notificacoes -->
+                                <tr>
+                                    <td>{nome}</td>
+                                    <td>{cpf}</td>
+                                    <td>{email}</td>
+                                    <td>{telefone_celular}</td>
+                                    <!-- <td>{regional}</td> -->
+                                    <td>{status}</td>
+                                </tr>
+                                <!-- END BLOCK : usuarios_notificacoes -->
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->  
+</div><!-- contentpanel -->

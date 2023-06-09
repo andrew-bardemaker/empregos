@@ -1,0 +1,146 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Baixa de Produtos</li>
+            </ul>
+            <h4>Baixa de Produtos</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_baixa_de_produtos" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+			        	<th>Data</th>
+			            <th>#ID</th>
+			            <th>Produto</th>
+			            <th>Qtde</th>
+			            <th class="text-center">Ações</th>
+			        </tr>
+			    </thead>
+
+			    <tbody>      
+
+			    <!-- START BLOCK : baixa_de_produtos -->
+				<tr>
+					<td>{data} {hora}</td>
+				    <td>{id}</td>
+				    <td>{produto}</td>
+				    <td>{qtde}</td>
+			        <td class="table-action text-center">
+			        	<a href="baixa-de-produtos-visualizar?id={id}" data-toggle="tooltip" title="Visualizar" class="tooltips"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+			        	<!-- <span class="{layout-editar}">
+			        		{status}
+			        		<a href="baixa-de-produtos-editar?id={id}" data-toggle="tooltip" title="Editar" class="tooltips"><i class="fa fa-pencil"></i></a>
+			        	</span>	 -->
+			        	<span class="{layout-excluir}"> 
+			        		<a href="javascript:void(0)" onclick="deleteBaixaDeProdutos({id}, 'baixa_de_produtos_delete', '{id}')" data-toggle="tooltip" title="Excluir" class="delete-row tooltips"><i class="fa fa-trash-o"></i></a>
+			        	</span>	                 
+			        </td>
+				</tr>
+			    <!-- END BLOCK : baixa_de_produtos -->
+
+				</tbody>
+			</table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane {layout-cadastrar}" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-10">
+                    <form id="form-baixa-de-produtos" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+		                <input type="hidden" name="act" value="baixa_de_produtos_cadastrar" /> 
+		                <div class="panel panel-default">
+		                    <div class="panel-body">
+		                        <div class="alert alert-warning">
+		                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+		                        </div>
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Data</label>
+		                            <div class="col-sm-9">
+		                                <input type="text" name="data" class="form-control date" />
+		                            </div>
+		                        </div><!-- form-group -->
+
+                                <div class="form-group">
+		                            <label class="col-sm-3 control-label">Produtos</label>
+		                            <div class="col-sm-9">
+		                            	<div class="entregadoresestoque-inputs">
+	                                        <div class="entregadoresestoque"> 
+												<label>Produto *</label> 
+												<div class="mb15"> 
+													<select data-placeholder="Buscar produto..." name="produtos[]" class="width100p select-produtos" required> 
+														<option value="">Buscar produto...</option> 
+													</select> 
+												</div>
+												<label>Qntd *</label> 
+												<div class="mb15"> 
+													<input type="text" name="qntd[]" class="form-control numero" required/> 
+												</div>
+												<a href="#" class="btn btn-xs btn-danger remove_field"><i class="fa fa-trash-o" aria-hidden="true"></i></a> 
+											</div>
+										</div>    
+										<a href="#" class="btn btn-xs btn-success" id="add_entregadoresestoque"><i class="fa fa-plus" aria-hidden="true"></i></a>                               
+                                    </div>                                  
+
+		                        </div><!-- form-group -->
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Entregador</label>
+		                            <div class="col-sm-9">
+		                               <select data-placeholder="Selecione um Entregador" name="entregador" class="width100p select-basic">
+		                                    <option></option>
+		                                    <!-- START BLOCK : entregadores --> 
+		                                    <option value="{id}" {selected}>#{id} - {nome}</option>
+		                                    <!-- END BLOCK : entregadores --> 
+		                                </select>
+		                            </div>
+		                        </div><!-- form-group -->
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Observações</label>
+		                            <div class="col-sm-9">
+		                               <textarea class="form-control" name="observacoes" rows="8"></textarea>
+		                            </div>
+		                        </div><!-- form-group -->
+
+		                        <div class="alert alert-danger alert-hide text-center"></div>
+		                    </div><!-- panel-body -->
+		                    <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+		                    
+		                </div><!-- panel -->
+		            </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane --> 
+
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

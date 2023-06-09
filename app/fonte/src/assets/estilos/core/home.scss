@@ -1,0 +1,52 @@
+@import "assets/estilos/core/variables.scss";
+
+
+.footer{
+    color: $secondary-color;
+    background-color: $light-gray;
+    padding-bottom: 5%;
+    margin-top: 5%;
+
+    .buttonFooter{
+        margin-bottom: 5%;
+        width:100%;
+        border-radius: 0px;
+        font-size: 14px;
+        color: $white;
+    }
+
+    .gridFooter{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        img{
+            max-width: 60%;
+            margin-left: 20%;
+        }
+    }
+
+    .titleFooter{
+        text-transform: 'uppercase';
+        color: $secondary-color;
+        font-size: 24px;
+    }
+
+    .linkFooter{
+        text-transform: 'capitalize';
+        color: $secondary-color;
+        font-size: 16px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .iconFooter{
+        color: $secondary-color !important;
+    }
+}
+
+.imgMarcas{
+    width:60%;
+}
+
+.imgMockup{
+    width:100%;  
+}

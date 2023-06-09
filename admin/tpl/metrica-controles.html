@@ -1,0 +1,66 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-diamond" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Métricas</li>
+            </ul>
+            <h4>Métricas</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+     <!-- START BLOCK : metricas -->
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-metricas" class="form-horizontal form-bordered " action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="{tipo_formatada}" /> 
+                <input type="hidden" name="id" value="{id}"/>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>     
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nome *</label>
+                            <div class="col-sm-9">
+                                <input type="text" disabled  placeholder="{tipo}" class="form-control numero" />
+                            </div>
+                        </div><!-- form-group -->   
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">R$ *</label>
+                            <div class="col-sm-9">
+                                <input type="text" id="valor" name="valor" value="{valor}" class="form-control bonificacao" />
+                            </div>
+                        </div><!-- form-group -->                 
+     
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right"> 
+                        <a href="javascript:void(0)" onclick="update_value_metrica({id},'{tipo_formatada}')" >Atualizar</a>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+<!-- END BLOCK : metricas -->
+                 
+        </div><!-- tab-pane -->
+
+
+           
+    </div><!-- tab-content --> 
+
+    <div class="mb20"></div>
+</div>

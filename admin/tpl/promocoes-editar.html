@@ -1,0 +1,100 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-bullhorn"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Promoções</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Promoções</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-promo" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="promocoes_editar" /> 
+                <input type="hidden" name="id" value="{id}" /> 
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Título *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="titulo" value="{titulo}" class="form-control" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Descrição *</label>
+                            <div class="col-sm-9">
+                               <textarea class="form-control" name="descricao" rows="8">{descricao}</textarea>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Produto</label>
+                            <div class="col-sm-9">
+                                <select data-placeholder="Selecione um Produto" name="produto" class="width100p select-basic">
+                                    <option></option>
+                                    <!-- START BLOCK : produtos -->
+                                    <option value="{id}" {selected}>{codigo} - {titulo}</option>
+                                    <!-- END BLOCK : produtos -->
+                                </select>
+                            </div>
+                        </div><!-- form-group -->       
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img -->
+                                <div class="media-manager">
+                                    <div class="col-xs-10 col-sm-6 col-md-5 image">
+                                        <div class="thmb">
+                                          <div class="btn-group fm-group">
+                                              <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                <span class="caret"></span>
+                                              </button>
+                                              <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                              <li><a href="../images/promo/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                <li><a href="javascript:void(0);" onclick="deleteImg('{id}', 'promocoes_img_delete')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                              </ul>
+                                          </div>
+                                          <div class="thmb-prev">                                            
+                                            <img src="../images/promo/{id}.jpg?v={date}" class="img-responsive" alt="" />                                            
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>                                
+                                <!-- END BLOCK : img -->
+
+                                <!-- START BLOCK : noimg -->
+                               <input type="file" name="img" class="form-control" />
+                               <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. <!--<br> A imagem deve possuir as seguintes dimensões 1920px x 1080px--></span>  
+                               <!-- END BLOCK : noimg -->
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="alert alert-danger alert-hide text-center"></div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

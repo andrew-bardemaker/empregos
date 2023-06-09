@@ -1,0 +1,265 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-shopping-cart" style="font-size:28px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Produtos</li>
+            </ul>
+            <h4>Produtos</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+	<!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_produtos" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+			        	<th class="desktop tablet">Código</th>
+			            <th class="desktop tablet">Título</th>
+			            <th class="desktop tablet">Marca</th>
+			            <th class="desktop tablet">Categoria</th>
+                        <th class="desktop tablet">Preço R$</th>
+                        <th class="desktop tablet">Preço Promo R$</th>
+			            <th class="text-center">Ações</th>
+			        </tr>
+			    </thead>
+
+                <tbody>      
+
+                <!-- START BLOCK : produtos -->
+                <tr>
+                    <td>{codigo}</td>
+                    <td>{titulo}</td>
+                    <td>{marca}</td>
+                    <td>{categoria}</td>
+                    <td>{preco}</td>
+                    <td>{preco_promo}</td>
+                    <td class="table-action text-center">
+                        {destaque}
+
+                        {status}
+                        
+                        <a href="produtos-editar?id={id}" data-toggle="tooltip" title="Editar" class="tooltips"><i class="fa fa-pencil"></i></a>
+
+                        <a href="javascript:void(0)" onclick="deleteProdutos({id}, 'produtos_delete', '{titulo}')" data-toggle="tooltip" title="Excluir" class="delete-row tooltips"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                </tr>
+                <!-- END BLOCK : produtos -->
+
+                </tbody>
+			</table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane {layout-cadastrar}" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-10">
+                    <form id="form-produtos" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="produtos_cadastrar" /> 
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Código *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="codigo" class="form-control numero" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Título *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="titulo" class="form-control" />
+                                    </div>
+                                </div><!-- form-group -->
+                            
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Descrição</label>
+                                    <div class="col-sm-9">
+                                       <textarea class="form-control" name="texto" rows="8"></textarea>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Preço *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="preco" class="form-control money" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Preço Promocional</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="preco_promo" class="form-control money" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Marca *</label>
+                                    <div class="col-sm-9">
+                                       <select data-placeholder="Marca *" name="marca" class="width100p select-search-hide">
+                                            <option value="">Selecione a Marca</option>
+                                            <!-- START BLOCK : marcas -->
+                                            <option value="{id}" {selected}>{titulo}</option>
+                                            <!-- END BLOCK : marcas -->                 
+                                        </select>
+                                    </div>
+                                </div><!-- form-group --> 
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Categoria *</label>
+                                    <div class="col-sm-9">
+                                       <select data-placeholder="Categoria *" name="categ" class="width100p select-search-hide">
+                                            <option value="">Selecione a Categoria</option>
+                                            <!-- START BLOCK : categorias -->
+                                            <option value="{id}" {selected}>{titulo}</option>
+                                            <!-- END BLOCK : categorias -->                 
+                                        </select>
+                                    </div>
+                                </div><!-- form-group -->                             
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Tags</label>
+                                    <div class="col-sm-9">
+                                        <input name="tags" id="tags" class="form-control" value="bejobs App" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Imagem Principal *</label>
+                                    <div class="col-sm-9">
+                                       <input type="file" name="img" class="form-control" />
+                                       <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. Dimensões mínimas ideais: 500px X 500px e com fundo branco.  </span>  
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Imagem 2</label>
+                                    <div class="col-sm-9">
+                                       <input type="file" name="img2" class="form-control" />
+                                       <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. Dimensões mínimas ideais: 500px X 500px e com fundo branco.  </span>  
+                                    </div>
+                                </div><!-- form-group -->      
+
+                                <div class="col-md-12">
+                                    <h4 class="mt20">Dados Fiscais</h4>
+                                    <hr>
+                                </div>   
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Código NCM</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="codigo_ncm" class="form-control" />
+                                        <span class="help-block">Código NCM do produto (8 dígitos).</span>
+                                    </div>
+                                </div><!-- form-group --> 
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">CFOP - Código Fiscal da operação</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cfop" class="form-control" />
+                                        <span class="text-block">Código Fiscal da operação. Utilize algum CFOP da operação válido para Nota ao Consumidor.</span>
+                                    </div>
+                                </div><!-- form-group --> 
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">ICMS Origem</label>
+                                    <div class="col-sm-9">
+                                       <select data-placeholder="ICMS Origem *" name="icms_origem" class="width100p select-search-hide">
+                                            <option value="">Selecione ICMS Origem</option>
+                                            <option value="0">0: nacional</option> 
+                                            <option value="1">1: estrangeira (importação direta)</option> 
+                                            <option value="2">2: estrangeira (adquirida no mercado interno)</option> 
+                                            <option value="3">3: nacional com mais de 40% de conteúdo estrangeiro</option> 
+                                            <option value="4">4: nacional produzida através de processos produtivos básicos</option> 
+                                            <option value="5">5: nacional com menos de 40% de conteúdo estrangeiro</option> 
+                                            <option value="6">6: estrangeira (importação direta) sem produto nacional similar</option> 
+                                            <option value="7">7: estrangeira (adquirida no mercado interno) sem produto nacional similar</option>          
+                                        </select>
+                                    </div>
+                                </div><!-- form-group --> 
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">ICMS Situação Tributária</label>
+                                    <div class="col-sm-9">
+                                       <select data-placeholder="ICMS Situação Tributária" name="icms_situacao_tributaria" class="width100p select-search-hide">
+                                            <option value="">Selecione ICMS Situação Tributária</option>                                   
+                                            <option value="102">102 - Tributada pelo Simples Nacional sem permissão de crédito</option>
+                                            <option value="300">300 - Imune</option> 
+                                            <option value="500">500 - CMS cobrado anteriormente por substituição tributária (substituído) ou por antecipação</option>             
+                                            <option value="00">00 - Tributada integralmente</option>
+                                            <option value="40">40 - Isenta</option>
+                                            <option value="41">41 - Não tributada</option>
+                                            <option value="60">60 - ICMS cobrado anteriormente por substituição tributária</option>
+                                        </select>
+                                    </div>
+                                </div><!-- form-group --> 
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">ICMS Aliquota</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="icms_aliquota" placeholder="00" class="form-control" />
+                                        <span class="help-block">Obrigatório se ICMS Situação Tributária = 00. Alíquota do ICMS. Deve estar entre 0 e 100.</span>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <!-- <div class="form-group">
+                                    <label class="col-sm-3 control-label">Base de cálculo do ICMS</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="icms_base_calculo" placeholder="00" class="form-control" />
+                                        <span class="help-block">Obrigatório se ICMS Situação Tributária = 00. Base de cálculo do ICMS.</span>
+                                    </div> 
+                                </div> form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">ICMS Modalidade Base Calculo</label>
+                                    <div class="col-sm-9">
+                                       <select data-placeholder="ICMS Modalidade Base Calculo" name="icms_modalidade_base_calculo" class="width100p select-search-hide">
+                                            <option value="">Selecione ICMS Modalidade Base Calculo</option>                             
+                                            <option value="0">0 - margem de valor agregado (%)</option>  
+                                            <option value="1">1 - pauta (valor)</option>  
+                                            <option value="2">2 - preço tabelado máximo (valor)</option>  
+                                            <option value="3">3 - valor da operação</option>    
+                                        </select>
+                                        <span class="help-block">Obrigatório se ICMS Situação Tributária = 00.</span>
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+                            
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

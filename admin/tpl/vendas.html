@@ -1,0 +1,85 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart" style="font-size: 26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Vendas</li>
+            </ul>
+            <h4>Vendas</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+    </ul>
+
+	<!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <p>Realize uma busca por período específico através dos filtros abaixo:</p>
+            <form class="form-inline row" act="vendas" method="GET">
+                <input type="hidden" name="id" value="{id_usuario}">                
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label class="control-label">Data início</label>                            
+                    <input type="text" name="data_inicio" value="{data_inicio}" class="form-control width100p date datepicker" required="required" />
+                </div>
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label class="control-label">Data fim</label>                            
+                    <input type="text" name="data_fim" value="{data_fim}" class="form-control width100p date datepicker" required="required" />
+                </div>
+                <div class="col-sm-4" style="margin-right: 0;">
+                    <button type="submit" class="btn btn-default" style="margin-top: 25px;">Buscar</button>
+                    <a href="./vendas" class="btn btn-default ml10" style="margin-top: 25px;">Limpar</a> 
+                </div> 
+                <div class="clearfix"></div>         
+            </form>
+            <hr>
+
+            <!-- START BLOCK : block-30-dias -->
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                Abaixo estão listadas as transações do mês corrente.
+            </div>
+            <!-- START BLOCK : block-30-dias -->
+
+            <!-- LISTA -->
+            <table id="list_vendas" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+                        <th>Data/Hora Registro</th>
+                        <th>#ID</th>
+                        <th>Status</th>       
+			            <th class="desktop tablet text-center">Ações</th>
+			        </tr>
+			    </thead>
+
+			    <tbody>      
+
+			    <!-- START BLOCK : vendas -->
+				<tr>
+                    <td>{data_hora_registro}</td>
+                    <td>{id}</td>
+                    <td>{status}</td>                  
+                    <td class="table-action text-center">
+                        <a href="vendas-visualizar?id={id}" data-toggle="tooltip" title="Visualizar" class="tooltips"><i class="fa fa-search-plus"></i></a>
+                    </td>            
+                </tr>
+			    <!-- END BLOCK : vendas -->
+
+				</tbody>
+			</table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->    
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

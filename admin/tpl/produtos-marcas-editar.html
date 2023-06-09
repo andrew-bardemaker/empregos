@@ -1,0 +1,83 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Marcas de Produtos</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Marcas de Produtos</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-produtos-marcas" class="form-horizontal form-bordered " action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="produtos_marcas_editar" /> 
+                <input type="hidden" name="id" value="{id}" />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>                        
+
+                         <div class="form-group">
+                            <label class="col-sm-3 control-label">Título *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="titulo" value="{titulo}" class="form-control" />
+                            </div>
+                        </div><!-- form-group -->  
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem *</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img -->
+                                <div class="row media-manager">
+                                    <div class="col-xs-12 col-sm-5 col-md-5 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/marcas/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'produtos_marcas_delete_img')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/marcas/{id}_500x500.jpg" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img -->
+
+                                <!-- START BLOCK : noimg -->
+                                <input type="file" name="img" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. Dimensões mínimas ideais: 500px X 500px e com fundo branco. </span>  
+                               <!-- END BLOCK : noimg --> 
+                            </div>
+                        </div><!-- form-group -->         
+
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

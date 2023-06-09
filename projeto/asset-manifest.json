@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/bejobs/projeto/static/js/main.780d3b10.js",
+    "static/media/mock_icon.jpg": "/bejobs/projeto/static/media/mock_icon.35397b2860c40a1c0d8a.jpg",
+    "index.html": "/bejobs/projeto/index.html",
+    "main.780d3b10.js.map": "/bejobs/projeto/static/js/main.780d3b10.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.780d3b10.js"
+  ]
+}

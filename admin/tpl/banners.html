@@ -1,0 +1,111 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-picture-o" style="font-size: 26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard.php"><i class="fa fa-home"></i></a></li>
+                <li>Banners</li>
+            </ul>
+            <h4>Banners</h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->                 
+
+		    <!-- START BLOCK : banners -->
+			<div class="row media-manager">
+                <div class="col-md-10 document">
+                    <div class="thmb">
+                        <div class="btn-group fm-group">
+                            <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                <!-- <li><a href="../images/banners/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li> -->
+				{status}
+                                <li class="{layout-editar}"><a href="banners-editar?id={id}"><i class="fa fa-pencil"></i> Editar</a></li>
+                                <li class="{layout-excluir}"><a href="javascript:void(0)" onclick="deleteImg({id}, 'banners_delete')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                            </ul>
+                        </div>
+                        <div class="thmb-prev">
+                            <img src="../images/banners/{id}.jpg?{time}" class="img-responsive" alt="" />
+                        </div>
+                        <h5 >Posição Banner: <strong>{posicao}</strong></h5>
+			{status_info}
+                    </div>
+                </div> 
+            </div>
+		    <!-- END BLOCK : banners -->
+
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-8">
+                    <form id="form-banners" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+		                <input type="hidden" name="act" value="banners_cadastrar" /> 
+		                <div class="panel panel-default">
+		                    <div class="panel-body">
+		                        <div class="alert alert-warning">
+		                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+		                        </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Imagem *</label>
+                                    <div class="col-sm-9">
+                                       <input type="file" name="arq" class="form-control" />
+                                       <span class="help-block">A imagem deve ser no formato JPG e deve possuir as dimensões 1920x250px. </span>  
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Imagem Mobile *</label>
+                                    <div class="col-sm-9">
+                                       <input type="file" name="arq_mobile" class="form-control" />
+                                       <span class="help-block">A imagem deve ser no formato JPG e deve possuir as dimensões 750x500px. </span>  
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Posição *</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="posicao" class="form-control numero" />
+                                    </div>
+                                </div><!-- form-group -->
+
+		                        <div class="alert alert-danger alert-hide text-center"></div>
+		                    </div><!-- panel-body -->
+		                    <div class="panel-footer text-right">
+		                    	<img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+		                        <button class="btn btn-default mr5">Cadastrar</button>
+		                    </div><!-- panel-footer -->
+		                    
+		                </div><!-- panel -->
+		            </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

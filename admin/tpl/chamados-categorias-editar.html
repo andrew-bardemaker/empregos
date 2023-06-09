@@ -1,0 +1,52 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Chamados / Categorias</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Chamados / Categorias</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-chamados-categorias" class="form-horizontal form-bordered " action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="chamados_categorias_editar" /> 
+                <input type="hidden" name="id" value="{id}" />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>                        
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Título *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="titulo" value="{titulo}" class="form-control" />
+                            </div>
+                        </div><!-- form-group -->                    
+     
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

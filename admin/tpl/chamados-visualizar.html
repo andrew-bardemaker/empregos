@@ -1,0 +1,155 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-commenting"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Chamados</li>
+                <li>Visualizar</li>
+            </ul>
+            <h4>Chamados</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            {msg}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4 class="mt0">Dados do Chamado</h4>
+                    <p>ID: #{id_chamado}</p>
+                    <p>Criado em: {data_registro} {hora_registro}</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">Status</h5>
+                            <p>{status}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">Telefone de Contato</h5>
+                            <p>{telefone}</p>
+                        </div>  
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">IP Registro</h5>
+                            <p>{ip_registro}</p>
+                        </div>                       
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">Nome/ Nome Fantasia</h5>
+                            <p>{nome_usuario}</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">CPF/ CNPJ</h5>
+                            <p>{cpfcnpj}</p>
+                        </div> 
+                        <!-- <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">Tipo Usuário</h5>
+                            <p>{tipo_usuario}</p>
+                        </div>  -->                        
+                    </div>
+                    <h4>Assunto</h4>
+                    <p>{assunto}</p>
+                    <h4>Mensagem</h4>
+                    <p>{mensagem}</p> <br>
+                    <h5 class="sm-title text-muted mt0">Anexo:</h5>
+                    <ul class="list-unstyled">
+                        <!-- START BLOCK : anexo_chamado -->
+                        <li><i class="fa fa-paperclip mr5"></i> <a href="{anexo}" download>{nome_anexo}</a></li>
+                        <!-- END BLOCK : anexo_chamado -->
+                    </ul>
+                    <!-- START BLOCK : noanexo_chamado -->
+                    <p class="mt10">Não existe nenhum arquivo anexado a este chamado.</p>
+                    <!-- END BLOCK : noanexo_chamado -->
+                        
+                    <!-- START BLOCK : avaliacao_chamado -->
+                    <h4 class="mt20">Avaliação Chamado</h4>
+                    <h5 class="sm-title text-muted">NOTA USÚARIO</h5>
+                    <p>{nota}</p>
+                    <!-- END BLOCK : avaliacao_chamado -->
+                </div>
+            </div>
+            
+            <h4>Interações</h4>
+            <div class="panel-group panel-group-msg" id="accordion">
+                <!-- START BLOCK : chamado_interacao -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <span class="time text-muted pull-right">Criado em: {data_registro} {hora_registro}</span>
+                            <a data-toggle="collapse" href="#collapse{id}">
+                                <img src="images/photos/user1.png" class="img img-online img-circle mr5" alt="" >
+                                {nome_usuario}
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapse{id}" class="panel-collapse collapse {in}">
+                        <div class="panel-body">
+                            {mensagem}
+                            <h5 class="sm-title text-muted mt20">Anexo:</h5>
+                            <ul class="list-unstyled">
+                                <!-- START BLOCK : anexo_chamado_interacao -->
+                                <li><i class="fa fa-paperclip mr5"></i> <a href="{anexo}" download>{nome_anexo}</a></li>
+                                <!-- END BLOCK : anexo_chamado_interacao -->
+                            </ul>
+                            <!-- START BLOCK : noanexo_chamado_interacao -->
+                            <p class="mt10">Não existe nenhum arquivo anexado a esta interação.</p>
+                            <!-- END BLOCK : noanexo_chamado_interacao -->
+                        </div>
+                    </div>
+                </div>
+                <!-- END BLOCK : chamado_interacao -->
+
+                <!-- START BLOCK : nochamado_interacao -->
+                <div class="alert alert-warning">
+                    Não existe nenhuma interação cadastrada.
+                </div>
+                <!-- END BLOCK : nochamado_interacao -->
+            </div><!-- panel-group -->
+
+            <!-- START BLOCK : chamado_interacao2 -->
+            <span class="{layout-editar}">
+                <div class="media msg-reply">
+                    <a class="pull-left" href="#">
+                      <img class="img-circle img-online" src="images/photos/profile.png" alt="">
+                    </a>
+                    <div class="media-body">
+                        <form id="form-chamados-interacao" class="" action="_process_request.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="act" value="chamados_interacao_cadastrar">
+                            <input type="hidden" name="id_chamado" id="id_chamado" value="{id_chamado}">
+                            <div class="form-group">
+                                <label class="control-label">Status Chamado *</label>
+                                <select data-placeholder="Status Chamado *" name="status_chamado" class="width100p select-search-hide"  >
+                                    <option value="">Selecione o status do chamado</option>
+                                    <option value="2">Atualizado</option>
+                                    <option value="3">Aguardando seu retorno</option>
+                                    <option value="4">Resolvido</option>
+                                </select>
+                            </div>
+                            <div class="form-group">     
+                                <label class="control-label">Mensagem *</label>                        
+                                <textarea class="form-control" name="mensagem" rows="8"></textarea>     
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label">Anexo</label>
+                                <input type="file" name="anexo" class="form-control mb5" />
+                                <!--<span class="help-block">É possível inserir até 5 anexos por interação, com tamanho total de até 5 MB.</span>-->
+                            </div>
+                            <div class="alert alert-danger alert-hide text-center">
+                                {msg}
+                            </div>
+                            <div class="form-group">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader ml35 display-none">
+                                <button class="btn btn-default">Cadastrar</button> 
+                            </div>
+                        </form>                    
+                    </div>             
+                </div>
+                <hr>
+            </span>
+            <!-- END BLOCK : chamado_interacao2 -->
+        </div>
+    </div><!-- row -->    
+</div><!-- contentpanel -->

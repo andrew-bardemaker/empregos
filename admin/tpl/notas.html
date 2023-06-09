@@ -1,0 +1,141 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-barcode" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Notas</li>
+            </ul>
+            <h4>Notas</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <!-- <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Importar</strong></a></li> -->
+    </ul>
+
+	<!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <form class="form-inline row" act="./notas" method="GET">
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                    </div>
+                </div>                   
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="tipo">Período</label>
+                    <select data-placeholder="" name="periodo" id="periodo" class="select-search-hide">
+                        <option value=""></option>
+                        <option value="today" data-period="{today}" {today_selected}>Hoje</option>
+                        <option value="yesterday" data-period="{yesterday}" {yesterday_selected}>Ontem</option>
+                        <option value="last_week" data-period="{last_week}" {last_week_selected}>Última Semana</option>
+                        <option value="last_30_days" data-period="{last_30_days}" {last_30_days_selected}>Últimos 30 dias</option>
+                        <option value="last_6_months" data-period="{last_6_months}" {last_6_months_selected}>Últimos 6 meses</option>
+                        <option value="last_12_months" data-period="{last_12_months}" {last_12_months_selected}>Últimos 12 meses</option>
+                        <option value="custom" data-period="{custom}" {custom_selected}>Personalizado</option>
+                    </select>
+                </div>
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="data_ini">Data Início</label>
+                    <input type="text" name="data_ini" id="data_ini" value="{data_ini}" class="form-control date datepicker width100p"/>
+                </div>
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="data_fim">Data Fim</label>
+                    <input type="text" name="data_fim" id="data_fim" value="{data_fim}" class="form-control date datepicker width100p"/>
+                </div> 
+                <div class="clearfix mb15"></div>
+                <div class="form-group pb15 col-sm-6" style="margin-right: 0;">
+                    <label class="control-label">Código Produto/ Modelo Produto/ Código Barras</label>      
+                    <select data-placeholder="Selecione um produto" name="produto" class="select-produtos">
+                        <option value=""></option>
+                        <!-- START BLOCK : produto -->
+                        <option value="{id}" selected>{codigo} - {referencia} - {codigo_barras}</option>
+                        <!-- END BLOCK : produto -->
+                    </select>
+                </div>
+                <div class="form-group pb15 col-sm-6" style="margin-right: 0;">
+                    <label class="control-label">Lojas/ CNPJ</label>      
+                    <select data-placeholder="Selecione uma loja" name="loja" class="select-basic">
+                        <option value="">Selecione uma loja</option>
+                        <option value="">Todas</option>
+                        <!-- START BLOCK : lojas -->
+                        <option value="{id}" {selected}>{titulo}</option>
+                        <!-- END BLOCK : lojas -->
+                    </select>
+                </div>
+                <div class="col-sm-12" style="margin-right: 0;">
+                    <button type="submit" class="btn btn-default" style="margin-top: 25px;">Buscar</button>
+                    <a href="./notas" class="btn btn-default ml10" style="margin-top: 25px;">Limpar</a> 
+                </div> 
+                <div class="clearfix"></div>         
+            </form>
+            <hr>
+            <!-- START BLOCK : notas_all -->
+            <table id="list_notas" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+                        <th class="desktop tablet">Data Emissão</th>
+                        <th class="desktop tablet">Nº Nota</th> 
+			        	<th class="desktop tablet">Código de Barras</th>
+                        <th class="desktop tablet">Cód. Produto</th>
+                        <th class="desktop tablet">Qtde</th>                        
+			            <th class="desktop tablet">Cód. Cliente</th>
+                        <th class="desktop tablet">CNPJ Cliente</th>			            		            
+			            <th class="text-center">Ações</th>
+			        </tr>
+			    </thead>
+			</table>
+            <!-- END BLOCK : notas_all -->
+
+            <!-- START BLOCK : notas_filter -->
+            <table id="list_notas2" class="table table-striped table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th class="desktop tablet">Data Emissão</th>
+                        <th class="desktop tablet">Nº Nota</th> 
+                        <th class="desktop tablet">Código de Barras</th>
+                        <th class="desktop tablet">Cód. Produto</th>
+                        <th class="desktop tablet">Qtde</th>                        
+                        <th class="desktop tablet">Cód. Cliente</th>
+                        <th class="desktop tablet">CNPJ Cliente</th>                                            
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>      
+
+                    <!-- START BLOCK : notas -->
+                    <tr>
+                        <td>{data_emissao}</td>
+                        <td>{nota_numero}</td>
+                        <td>{codigo_barras}</td>
+                        <td>{codigo_produto}</td>
+                        <td>{qntd}</td>
+                        <td>{codigo_cliente}</td>
+                        <td>{cnpj_cliente}</td>
+                        <td class="table-action text-center">
+                            <a href="notas-visualizar?id={id}" data-toggle="tooltip" title="Visualizar" class="tooltips"><i class="fa fa-search-plus" aria-hidden="true"></i></a>
+                        </td>
+                    </tr>
+                    <!-- END BLOCK : notas -->
+
+                </tbody>
+            </table>
+            <!-- END BLOCK : notas_filter -->
+
+        </div><!-- tab-pane -->
+           
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

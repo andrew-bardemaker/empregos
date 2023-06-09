@@ -1,0 +1,48 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Mensagem</li>
+                <li>Visualizar</li>
+            </ul>
+            <h4>Mensagem</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            {msg}
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4 class="mt0">Dados da Mensagem</h4>
+                    <p>Assunto: <strong>{assunto}</strong></p>
+                    <p>Remetente: {nome} ({email}) - {telefone}</p>
+                    <p>Criado em: {data_registro} {hora_registro}</p>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <h5 class="sm-title text-muted">Status</h5>
+                            <p>{status}</p>
+                        </div>                       
+                    </div>                    
+                    <h4>Mensagem</h4>
+                    <p>{mensagem}</p>
+                    <!-- START BLOCK : mensagem-nao-lida -->
+                    <div class="row {layout-editar}">
+                        <hr>
+                        <div class="col-sm-6 mt10">
+                            <button onclick="marcarMensagemLida({id_mensagem}, 'marcar_mensagem_lida')" class="btn btn-success btn-block"><i class="fa fa-check" aria-hidden="true"></i>&nbsp; Marcar mensagem como Lida</button>
+                        </div>
+                    </div>
+                    <!-- END BLOCK : mensagem-nao-lida -->
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->    
+</div><!-- contentpanel -->

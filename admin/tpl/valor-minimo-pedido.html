@@ -1,0 +1,54 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-diamond" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Valor Mínimo Pedido</li>
+            </ul>
+            <h4>Valor Mínimo Pedido</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-valor-minimo-pedido" class="form-horizontal form-bordered " action="_process_request.php" method="post" enctype="multipart/form-data">
+                <!-- <input type="hidden" name="act" value="resgate_via_varejo" />  -->
+                <input type="hidden" name="act" value="valor_minimo_pediddo" />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>     
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">R$ *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="valor" value="{valor}" class="form-control money" />
+                            </div>
+                        </div><!-- form-group -->                 
+     
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+
+	<div class="mb20"></div>
+
+</div>

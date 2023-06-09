@@ -1,0 +1,118 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-newspaper-o" style="font-size:26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Novidades</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Novidades</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+             <form id="form-news" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="news_editar" />
+                <input type="hidden" name="id" value="{id}" /> 
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Data *</label>
+                            <div class="col-sm-9">
+                               <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <input type="text" name="data" value="{data}" class="form-control date" />
+                                </div>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Título *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="titulo" value="{titulo}" class="form-control" />
+                            </div>
+                        </div><!-- form-group -->
+                    
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Texto</label>
+                            <div class="col-sm-9">
+                               <textarea class="form-control text-area2" name="texto" rows="8">{texto}</textarea>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <!--<div class="form-group">
+                            <label class="col-sm-3 control-label">Categoria *</label>
+                            <div class="col-sm-9">
+                                <select data-placeholder="Selecione uma categoria *" name="categoria" class="width100p select-search-hide">
+                                    <option value="">Selecione uma categoria *</option>
+                                    {categorias}
+                                </select>
+                            </div>
+                        </div> form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tags</label>
+                            <div class="col-sm-9">
+                                <input name="tags" id="tags" class="form-control" value="{tags}" />
+                            </div>
+                        </div><!-- form-group -->
+
+ 
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem *</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img -->
+                                <div class="row media-manager">
+                                    <div class="col-xs-12 col-sm-7 col-md-7 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/news/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'news_delete_img')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/news/{id}.jpg?t={time}" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img -->
+                                <!-- START BLOCK : noimg -->
+                                <input type="file" name="img" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. </span>  
+                               <!-- END BLOCK : noimg --> 
+                            </div>
+                        </div><!-- form-group -->
+
+
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

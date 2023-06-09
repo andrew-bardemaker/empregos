@@ -1,0 +1,90 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-bullhorn" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Anúncios</li>
+                <li>Visualizar</li>
+            </ul>
+            <h4>Anúncios</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">  
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dados Anúncio</h4> 
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label"></label>                            
+                                <input type="text" name="" value="{numero_pedido}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Perfil</label>                            
+                                <input type="text" name="" value="{perfil}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Período Vigência</label>                            
+                                <input type="text" name="" value="{periodo_vigencia}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Categoria</label>                            
+                                <input type="text" name="" value="{categoria}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Área</label>                            
+                                <input type="text" name="" value="{area}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div> 
+                                <div class="col-sm-12">
+                                    <hr>
+                                    <h4>Imagem Anúncio</h4>
+                                    <!-- START BLOCK : img -->
+                                    <div class="row media-manager">
+                                        <div class="col-xs-12 col-sm-4 col-md-4 document">
+                                            <div class="thmb">
+                                                <div class="btn-group fm-group">
+                                                    <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                        <li><a href="{imagem}" download><i class="fa fa-download"></i> Download</a></li>
+                                                        <!-- <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'news_delete_img')"><i class="fa fa-trash-o"></i> Delete</a></li> -->
+                                                    </ul>
+                                                </div>
+                                                <div class="thmb-prev">
+                                                    <img src="{imagem}" class="img-responsive" alt="" />
+                                                </div>
+                                            </div>
+                                        </div> 
+                                    </div>
+                                    <!-- END BLOCK : img -->
+
+                                    <!-- START BLOCK : noimg -->
+                                    <p>Nenhuma imagem encontrada.</p>
+                                    <!-- END BLOCK : noimg --> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- panel-body -->                    
+            </div><!-- panel -->
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

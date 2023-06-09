@@ -1,0 +1,61 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Contatos FAQ</li>
+            </ul>
+            <h4>Contatos FAQ</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li> 
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+      <!-- LISTA -->
+      <table id="" class="table table-striped table-bordered responsive">
+        <thead>
+            <tr>
+                <th>Data Registro</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <!-- <th>Tipo Usuário</th> -->
+                <th>Mensagem</th> 
+        </thead>
+
+        <tbody>      
+
+        <!-- START BLOCK : chamados -->
+        <tr>
+            <td>{data_cadastro}</td> 
+            <td>{nome}</td>
+            <td>{email}</td>
+            <td>{telefone_celular}</td>
+            <td>{mensagem}</td> 
+        </tr>
+        <!-- END BLOCK : chamados -->
+
+        </tbody>
+    </table>
+    <!--  END LISTA  -->
+</div><!-- tab-pane -->
+      
+         
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+    <div class="mb20"></div>
+</div>

@@ -1,0 +1,178 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-commenting" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Cupons</li>
+            </ul>
+            <h4>Cupons</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content  mb30">
+
+
+        <div class="tab-pane active" id="list">
+
+            <!-- LISTA -->
+            <table id="list_cupons" class="table table-striped table-bordered responsive">
+                <thead>
+                    <tr>
+                        <th>Data Registro</th>
+                        <th>Nome</th>
+                        <th>desconto</th>
+                        <th>Data inicio</th>
+                        <th>Data fim</th>
+                        <th>Status</th>
+                        <th class="text-center">Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- START BLOCK : cupons -->
+                    <tr>
+                        <td>{data_registro}</td>
+                        <td>{cupom_nome}</td>
+                        <td>{cupom_desconto}%</td>
+                        <td>{data_ini}</td>
+                        <td>{data_fim}</td>
+                        <!-- <td>{usuario_tipo}</td> -->
+                        <td>{status}</td>
+                        
+                    <td class="table-action text-center">
+                        {ativa}
+			        	
+			        	<span class="{layout-excluir}">
+		                	<a href="javascript:void(0)" onclick="deleteCuppom({id}, 'cuppom_delete', '{cupom_nome}.')" data-toggle="tooltip" title="Excluir" class="delete-row tooltips"><i class="fa fa-trash-o"></i></a>
+		                </span>
+			        </td>
+                  
+                    </tr>
+                    <!-- END BLOCK : cupons -->
+
+                </tbody>
+            </table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+        <div class="tab-pane {layout-cadastrar}" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-10">
+                    <form id="form-cuppom" class="form-horizontal form-bordered " action="_process_request.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="cuppom_cadastrar" /> 
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>         
+    
+                                <!--<div class="form-group">
+                                    <label class="col-sm-3 control-label">Tipo de Usuário *</label>
+                                    <div class="col-sm-9">
+                                        <select data-placeholder="Tipo de Usuários *" name="tipo_de_usuario" class="width100p select-search-hide"  >
+                                            <option value="">Selecione o tipo de usuário</option>
+                                            <option value="1">Colaborador Buffon</option>
+                                            <option value="2">Pessoa Física</option>
+                                            <option value="3">Pessoa Jurídica</option>
+                                        </select>
+                                    </div>
+                                </div> form-group -->  
+    
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Cupom</label>
+                                  
+                                    <div class="col-sm-9">
+                                        <input type="text" name="cuppom" id="cuppom" class="form-control "  />
+                                    </div>
+                                </div><!-- form-group -->                
+    
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Desconto</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="desconto" id="desconto" class="form-control " placeholder="valor em %"  />
+                                    </div>
+                                </div><!-- form-group -->       
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Data início</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="data_inicio" class="form-control date datepicker" />
+                                    </div>
+                                </div><!-- form-group -->  
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Hora início</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="hora_inicio" class="form-control hour" />
+                                    </div>
+                                </div><!-- form-group -->  
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Data fim</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="data_fim" class="form-control date datepicker" />
+                                    </div>
+                                </div><!-- form-group -->  
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Hora fim</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="hora_fim" class="form-control hour" />
+                                    </div>
+                                </div><!-- form-group -->  
+                                <div class="alert alert-danger alert-hide text-center">
+                                    {msg}
+                                </div>
+                            </div><!-- panel-body -->
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+                            
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->  
+    
+
+
+    </div><!-- tab-content -->
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="mb20"></div>
+
+</div>
+
+
+
+

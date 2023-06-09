@@ -1,0 +1,179 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Compras</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Compras</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+    <div class="row">
+        <div class="col-md-10">
+            <form id="form-compras" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="compras_editar" /> 
+                <input type="hidden" name="id" value="{id}" /> 
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Chave de Acesso *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="chave_acesso" value="{chave_acesso}" class="form-control" readonly="readonly" />     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Número *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="numero" value="{n_nfce}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Série</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="serie" value="{serie}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Data Emissão *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="data_emissao" value="{data_emissao}" class="form-control date" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Hora Emissão *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="hora_emissao" value="{hora_emissao}" class="form-control hour_full" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Protocolo</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="protocolo" value="{protocolo_aut}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Valor Total da Nota Fiscal</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="total_nfce" value="{total_nfce}" class="form-control money"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="col-md-12">
+                            <h4 class="mt20">Emitente</h4>
+                            <hr>
+                        </div>  
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nome / Razão Social</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="emit_nome" value="{emit_nome}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">CNPJ</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="emit_cnpj" value="{emit_cnpj}" class="form-control cnpj"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Inscrição Estadual</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="emit_ie" value="{emit_ie}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="col-md-12">
+                            <h4 class="mt20">Dados do Destinatário</h4>
+                            <hr>
+                        </div>  
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">CNPJ/CPF</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="dest_cnpj_cpf" value="{dest_cnpj_cpf}" id="cpfcnpj" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nome / Razão Social</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="dest_nome" value="{dest_nome}" class="form-control"/>     
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Informações Complementares</label>
+                            <div class="col-sm-9">
+                               <textarea class="form-control" name="inf_cpl" rows="7">{inf_cpl}</textarea>   
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="col-md-12">
+                            <h4 class="mt20">Produtos</h4>
+                            <hr>
+                        </div>  
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Produtos</label>
+                            <div class="col-sm-9">
+                                <div class="estoque-inputs">
+                                    <!-- START BLOCK : compras_produtos -->
+                                    <div class="estoque"> 
+                                        <label>Produto *</label> 
+                                        <div class="mb15"> 
+                                            <select data-placeholder="Buscar produto..." name="produtos[]" class="width100p select-produtos2" required> 
+                                                <option value="">Buscar produto...</option> 
+                                                <option value="{id_produto}" selected>{id_produto} - {titulo}</option>
+                                            </select> 
+                                        </div>
+                                        <label>Qntd *</label> 
+                                        <div class="mb15"> 
+                                            <input type="text" name="qntd[]" value="{qtde}" class="form-control numero" required/> 
+                                        </div>
+                                        <label>Valor unitário *</label> 
+                                        <div class="mb15"> 
+                                            <input type="text" name="preco[]" value="{vl_unit}" class="form-control money" required/> 
+                                        </div>
+                                        <a href="#" class="btn btn-xs btn-danger remove_field"><i class="fa fa-trash-o" aria-hidden="true"></i></a> 
+                                    </div>     
+                                    <!-- END BLOCK : compras_produtos -->
+                                </div>
+                                <a href="#" class="btn btn-xs btn-success" id="add_estoque"><i class="fa fa-plus" aria-hidden="true"></i></a>        
+                            </div>
+
+                        </div><!-- form-group -->
+
+                        <div class="alert alert-danger alert-hide text-center"></div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div>
+    <div class="mb20"></div>
+</div>

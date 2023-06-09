@@ -1,0 +1,298 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-address-card-o" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Usuários BeJobs APP</li>
+            </ul>
+            <h4>Usuários BeJobs APP</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <!--<li><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>-->
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_usuarios" class="table table-striped table-bordered responsive">
+                <thead>
+                    <tr>   
+                        <th class="all">Cadastro</th>                    
+                        <th class="all">Nome</th>
+                        <th>CPF</th>
+                        <th>Email</th>
+                        <th>Celular</th>
+                        <th>Nascimento</th>                        
+                        <th class="text-center all">Ações</th>
+                    </tr>
+                </thead>
+
+                 <tbody>      
+
+                    <!-- START BLOCK : usuarios -->
+                    <tr>
+                        <td>{data_cadastro}</td>
+                        <td style="word-break: break-all;">{nome}</td>
+                        <td>{cpf}</td>
+                        <td>{email}</td>
+                        <td><span class="fone">{telefone_celular}</span></td>
+                        <td>{nascimento}</td>                       
+                        <td class="table-action text-center">
+                            <span class="{layout-editar}">
+                                {status}
+                            </span>
+                            <!-- <a href="usuarios-extrato?id={id}" data-toggle="tooltip" title="Extrato" class="tooltips"><i class="fa fa-file-text" aria-hidden="true"></i></a> -->
+                            <span class="{layout-editar}">
+                                <a href="usuarios-editar?id={id}" data-toggle="tooltip" title="Editar" class="tooltips"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                            </span>
+                        </td>            
+                    </tr>
+                    <!-- END BLOCK : usuarios -->
+
+                </tbody>
+            </table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-12">
+                    <form id="form-usuario-pessoa-fisica" action="_process_request.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="usuario_pessoa_fisica_cadastrar" /> 
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Cadastro Básico</h4>
+                                        <hr>
+                                    </div>
+
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group">
+                                            <label class="control-label">CPF *</label>                            
+                                            <input type="text" name="cpf" class="form-control cpf" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Nome *</label>                            
+                                            <input type="text" name="nome" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Data de Nascimento *</label>                           
+                                            <input type="text" name="nascimento" class="form-control date" />                                                                        
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Sexo *</label>                            
+                                            <select data-placeholder="Selecione o Sexo" name="sexo" class="select-search-hide width100p">
+                                                <option value="">Selecione o Sexo</option>
+                                                <option value="Feminino">Feminino</option>
+                                                <option value="Masculino">Masculino</option>                                     
+                                            </select>                            
+                                        </div><!-- form-group -->                                        
+
+                                        <div class="form-group">
+                                            <label class="control-label">Telefone celular *</label>                            
+                                            <input type="text" name="telefone_celular" class="form-control fone" />                            
+                                        </div><!-- form-group -->                             
+
+                                        <div class="form-group">
+                                            <label class="control-label">Email *</label>                            
+                                            <input type="email" name="email" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Senha *</label>                            
+                                            <input type="password" name="senha" class="form-control" />                            
+                                        </div><!-- form-group -->                                                                                                                                                                         
+                                    </div>
+
+                                    <div class="col-sm-6">   
+
+                                        <div class="form-group">
+                                            <label class="control-label">CEP *</label>                            
+                                            <input type="text" id="cep" name="cep" class="form-control cep" />                            
+                                        </div><!-- form-group -->   
+
+                                        <div class="form-group">
+                                            <label class="control-label">Endereço *</label>                            
+                                            <input type="text" id="endereco" name="endereco" id="readonlyinput" class="form-control" readonly="readonly" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Número *</label>                            
+                                            <input type="text" name="numero" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Complemento</label>                            
+                                            <input type="text" name="complemento" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Bairro *</label>                            
+                                            <input type="text" id="bairro" name="bairro" id="readonlyinput" class="form-control" readonly="readonly" />                            
+                                        </div><!-- form-group -->                                        
+
+                                        <div class="form-group">
+                                            <label class="control-label">Cidade *</label>                                            
+                                            <input type="text" id="cidade" name="cidade" id="readonlyinput" class="form-control" readonly="readonly" />                                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Estado *</label>                            
+                                            <input type="text" id="uf" name="uf" id="readonlyinput" class="form-control" readonly="readonly" />                            
+                                        </div><!-- form-group -->                          
+                                    </div> 
+
+                                    <div class="col-md-12">
+                                        <h4>Dados Complementares</h4>
+                                        <hr>
+                                    </div>
+
+                                    <div class="col-sm-6">
+
+                                        <div class="form-group">
+                                            <label class="control-label">Telefone fixo</label>                            
+                                            <input type="text" name="telefone_fixo" class="form-control fone" />                            
+                                        </div><!-- form-group --> 
+
+                                        <div class="form-group">
+                                            <label class="control-label">Filiação/ Pai</label>                            
+                                            <input type="text" name="pai" class="form-control" />                            
+                                        </div><!-- form-group --> 
+
+                                        <div class="form-group">
+                                            <label class="control-label">Filiação/ Mãe</label>                            
+                                            <input type="text" name="mae" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Estado Civil</label>                            
+                                            <select data-placeholder="Selecione o estado civil" name="estado_civil" class="select-search-hide width100p">
+                                                <option value="">Selecione o estado civil</option>
+                                                <option value="Solteira(o)">Solteira(o)</option>
+                                                <option value="Casada(o)">Casada(o)</option>
+                                                <option value="Divorciada(o)">Divorciada(o)</option>
+                                                <option value="Viúva(o)">Viúva(o)</option>
+                                                <option value="Separada(o)">Separada(o)</option>
+                                                <option value="Companheira(o)">Companheira(o)</option>                               
+                                            </select>                            
+                                        </div><!-- form-group --> 
+
+                                        <div class="form-group">
+                                            <label class="control-label">Filhos</label>                            
+                                            <select data-placeholder="Selecionea a opção sim/não" name="filhos" class="select-search-hide width100p">
+                                                <option value="">Selecionea a opção sim/não</option>
+                                                <option value="Sim">Sim</option>
+                                                <option value="Não">Não</option>                            
+                                            </select>                            
+                                        </div><!-- form-group --> 
+
+                                        <div class="form-group">
+                                            <label class="control-label">Filhos Quantidade</label>                            
+                                            <input type="number" name="filhos_qntd" class="form-control" />                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Formação/ Escolaridade</label>                            
+                                            <select data-placeholder="Selecione a formação/ escolaridade" name="formacao_escolaridade" class="select-search-hide width100p">
+                                                <option value="">Selecione a formação/ escolaridade</option>
+                                                <option value="Ensino fundamental">Ensino fundamental</option>
+                                                <option value="Ensino fundamental incompleto">Ensino fundamental incompleto</option>
+                                                <option value="Ensino medio">Ensino médio</option>
+                                                <option value="Ensino medio incompleto">Ensino médio incompleto</option>
+                                                <option value="Ensino superior">Ensino superior</option>
+                                                <option value="Ensino superior incompleto">Ensino superior incompleto</option>                                
+                                            </select>                            
+                                        </div><!-- form-group --> 
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="control-label">Perfil Motorista</label>                            
+                                            <select data-placeholder="Selecione o tipo de perfil" name="perfil_motorista" class="select-search-hide width100p">
+                                                <option value="">Selecione o tipo de perfil</option>
+                                                <option value="Motorista Urbano">Motorista Urbano</option>
+                                                <option value="Motorista Caminhão">Motorista Caminhão</option>                                     
+                                            </select>                            
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Áreas de Interesse</label>                                        
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Cultura" id="checkbox1" />
+                                                <label for="checkbox1">Cultura</label>                     
+                                            </div>
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Economia" id="checkbox2" />
+                                                <label for="checkbox2">Economia</label>                     
+                                            </div>  
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Tecnologia" id="checkbox3" />
+                                                <label for="checkbox3">Tecnologia</label>                     
+                                            </div>
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Política" id="checkbox4" />
+                                                <label for="checkbox4">Política</label>                     
+                                            </div>
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Esporte" id="checkbox5" />
+                                                <label for="checkbox5">Esporte</label>                     
+                                            </div>   
+                                            <div class="ckbox ckbox-default">                                    
+                                                <input type="checkbox" name="areas_de_interesse[]" value="Turismo" id="checkbox6" />
+                                                <label for="checkbox6">Turismo</label>                     
+                                            </div>                                                                        
+                                       
+                                        </div><!-- form-group -->
+
+                                        <div class="form-group">
+                                            <label class="control-label">Time do coração</label>                            
+                                            <select data-placeholder="Selecione o time do coração" name="time_do_coracao" class="select-basic width100p">
+                                                <option value="">Selecione o time do coração</option>,
+                                                <!-- START BLOCK : times -->
+                                                <option value="{id}">{titulo}</option>
+                                                <!-- END BLOCK : times -->
+                                            </select>                            
+                                        </div><!-- form-group -->                                        
+
+                                    </div>                                   
+                                </div>
+
+                                <div class="alert alert-danger alert-hide text-center"></div>
+                            </div><!-- panel-body -->
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+                            
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+    <div class="mb20"></div>
+</div>

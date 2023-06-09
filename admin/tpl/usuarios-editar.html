@@ -1,0 +1,149 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Usuários Llevo</li>              
+                <li>Editar</li>
+            </ul>
+            <h4>Usuários Llevo</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <form id="form-usuarios-editar" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="usuarios_editar" /> 
+                <input type="hidden" name="id" value="{id}">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>Dados Usuário</h4>
+                                <hr>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Nome *</label>                            
+                                    <input type="text" name="nome" value="{nome}" class="form-control text-uppercase" />                            
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">CPF *</label>                            
+                                    <input type="text" name="cpf" value="{cpf}" class="form-control cpf"/>                            
+                                </div>       
+
+                                <div class="form-group">
+                                    <label class="control-label">Email *</label>                            
+                                    <input type="email" name="email" value="{email}" class="form-control text-lowercase" />                            
+                                </div>                                                                
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Data de Nascimento *</label>                           
+                                    <input type="text" name="nascimento" value="{nascimento}" class="form-control date" />                                                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="control-label">Telefone celular *</label>                            
+                                    <input type="text" name="telefone_celular" value="{telefone_celular}" class="form-control fone" />                            
+                                </div>                                                                    
+                            </div> 
+
+                            <!-- <div class="col-md-12">
+                                <h4>Dados Loja</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">CNPJ *</label>                            
+                                    <input type="text" id="lojas_cnpj" name="lojas_cnpj" value="{lojas_cnpj}" class="form-control cnpj" />                            
+                                </div> 
+
+                                <div class="form-group">
+                                    <label class="control-label">Loja *</label>                            
+                                    <input type="text" id="lojas_nome_fantasia" name="lojas_nome_fantasia" value="{lojas_nome_fantasia}" class="form-control" readonly="readonly" />          
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Acesso Gerente *</label>                            
+                                    <select data-placeholder="Selecione um opção acesso gerente" name="acesso_gerente" class="select-search-hide width100p">
+                                        <option value="">Selecione um opção acesso gerente</option>
+                                        {acesso_gerente}                               
+                                    </select>                            
+                                </div>  
+                            </div>    
+
+                            <div class="col-md-12">
+                                <h4>Reputação Usuário</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Reputação *</label>                            
+                                    <select data-placeholder="Selecione um opção reputação" name="reputacao_usuario" class="select-search-hide width100p">
+                                        <option value="">Selecione um opção reputação</option>
+                                        {reputacao}                               
+                                    </select>                            
+                                </div>  
+                            </div>   -->                     
+
+                            <!-- <div class="col-md-12"> -->
+                                <!-- <h4>Senha</h4>
+                                <hr>
+                            </div>
+                            
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Senha * <small><i>A senha deve possuir 6 números</i></small></label>                            
+                                    <input type="password" name="senha" id="senha" class="form-control" maxlength="6" />                            
+                                </div>  
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Confirmar Senha * <small><i>Confirme a senha digitada no campo anterior</i></small></label>                            
+                                    <input type="password" name="senha_confirma" id="senha_confirma" class="form-control" maxlength="6" />                            
+                                </div> 
+                            </div> -->
+
+                            <div class="col-md-12">
+                                <h4>Memorando Usuário</h4>
+                                <hr>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label class="control-label">Memorando</label>       
+                                    <textarea class="form-control" name="memorando" rows="8">{memorando}</textarea>                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="alert alert-danger alert-hide text-center"></div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

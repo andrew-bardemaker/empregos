@@ -1,0 +1,124 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-picture-o" style="font-size: 26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard.php"><i class="fa fa-home"></i></a></li>
+                <li>Banners</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Banners</h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-8">
+            <form id="form-banners" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="banners_editar" />
+                <input type="hidden" name="id" value="{id}" /> 
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <div class="row media-manager">
+                                <div class="col-md-12 document">
+                                    <div class="thmb">
+                                        <div class="thmb-prev">
+                                            <img src="../img/nivo/nivo{id}.jpg" class="img-responsive" alt="" />
+                                        </div>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div> form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem *</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img -->
+                                <div class="row media-manager">
+                                    <div class="col-md-12 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/banners/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'banners_img_delete')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/banners/{id}.jpg?{time}" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img -->
+
+                                <!-- START BLOCK : noimg -->
+                               <input type="file" name="arq" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir as dimensões 1920x250px. </span>  
+                               <!-- END BLOCK : noimg -->
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem Mobile *</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img_m -->
+                                <div class="row media-manager">
+                                    <div class="col-md-12 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/banners/{id}-m.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'banners_img_mobile_delete')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/banners/{id}-m.jpg?{time}" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img_m -->
+
+                                <!-- START BLOCK : noimg_m -->
+                               <input type="file" name="arq_mobile" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir as dimensões 750x500px. </span>    
+                               <!-- END BLOCK : noimg_m -->
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Posição *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="posicao" value="{posicao}" class="form-control numero" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="alert alert-danger alert-hide text-center"></div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

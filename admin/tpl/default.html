@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+    <title>Dashboard</title>
+
+    <base href="{base}">
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+    <link href="css/style.default.css" rel="stylesheet">
+    <link href="css/morris.css" rel="stylesheet">
+    <link href="css/dropzone.css" rel="stylesheet" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+</head>
+
+<body>
+
+    <header>
+        <div class="headerwrapper">
+            <div class="header-left">
+                <a href="javascript:void(0);" class="logo" style="cursor: initial;">
+                    <img src="images/bejobs/logo.png" alt="" style="max-width: 57px; position: absolute; bottom:1px" />
+                </a>
+                <div class="pull-right">
+                    <a href="" class="menu-collapse">
+                        <i class="fa fa-bars"></i>
+                    </a>
+                </div>
+            </div><!-- header-left -->
+
+            <div class="header-right">
+
+                <div class="pull-right">
+                    <!-- START BLOCK : canal_relacionamento -->
+                    <div class="btn-group btn-group-list btn-group-messages">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="badge">{mensagens_total}</span>
+                        </button>
+                        <div class="dropdown-menu pull-right">
+                            <h5>Mensagens</h5>
+                            <ul class="media-list dropdown-list">
+                                <!-- START BLOCK : menu_mensagens -->
+                                <li class="media" onclick="window.location='./mensagens-visualizar?id={id}';">
+                                    <div class="media-body">
+                                        <strong>{assunto}</strong><br> {nome} ({email}) <br>
+                                        <small class="date-info"><i class="fa fa-calendar"></i> {data_registro}</small>
+                                    </div>
+                                </li>
+                                <!-- END BLOCK : menu_mensagens -->
+
+                                <!-- START BLOCK : nomenu_mensagens -->
+                                <li class="media">
+                                    <div class="media-body text-center">
+                                        Não foram encontradas mensagens não lidas.
+                                    </div>
+                                </li>
+                                <!-- END BLOCK : nomenu_mensagens -->
+                            </ul>
+                            <div class="dropdown-footer text-center">
+                                <a href="./mensagens" class="link">Ver todas mensagens</a>
+                            </div>
+                        </div><!-- dropdown-menu -->
+                    </div><!-- btn-group -->
+
+                    <div class="btn-group btn-group-list btn-group-messages">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge">
+                                <!--{notificacoes_total}-->0
+                            </span>
+                        </button>
+                        <div class="dropdown-menu pull-right">
+                            <h5>Notificações</h5>
+                            <ul class="media-list dropdown-list">
+                                <!---->
+                                <!-- START BLOCK : menu_notificacoes -->
+                                <!--  <li class="media" onclick="window.location='./notificacoes-visualizar?id={id}';">                                        
+                                        <div class="media-body">
+                                          <strong>{titulo}</strong><br> {texto} <br>
+                                          <small class="date-info"><i class="fa fa-calendar"></i> {data_registro}</small>
+                                        </div>                                            
+                                    </li>-->
+
+                                <!-- END BLOCK : menu_notificacoes -->
+
+                                <!-- START BLOCK : nomenu_notificacoes -->
+                                <li class="media">
+                                    <div class="media-body text-center">
+                                        Não foram encontradas notificações não lidas.
+                                    </div>
+                                </li>
+                                <!-- END BLOCK : nomenu_notificacoes -->
+                            </ul>
+                            <div class="dropdown-footer text-center">
+                                <a href="./notificacoes" class="link">Ver todas notificações</a>
+                            </div>
+                        </div><!-- dropdown-menu -->
+                    </div><!-- btn-group -->
+                    <!-- END BLOCK : canal_relacionamento -->
+
+                    <div class="btn-group btn-group-option">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right" role="menu">
+                            <li><a href="javascript:void(0)" class="user_name_menu"><i
+                                        class="glyphicon glyphicon-user"></i> {user_name_menu}</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login_exec.php?act=logout"><i class="glyphicon glyphicon-log-out"></i>Sair</a>
+                            </li>
+                        </ul>
+                    </div><!-- btn-group -->
+
+                </div><!-- pull-right -->
+
+            </div><!-- header-right -->
+
+        </div><!-- headerwrapper -->
+    </header>
+
+    <section>
+        <div class="mainwrapper">
+            <div class="leftpanel">
+                <ul class="nav nav-pills nav-stacked">
+                    <h5 class=leftpanel-title>MENU</h5>
+                    <!-- START BLOCK : menu_gerente -->
+                    <li><a href="./painel"><i class="fa fa-home"></i> <span>Painel</span></a></li>
+                    <!-- END BLOCK : menu_gerente -->
+
+                    <!-- START BLOCK : menu_admin -->
+                    <li><a href="./painel"><i class="fa fa-home"></i> <span>Painel</span></a></li>
+                    <!-- START BLOCK : item_menu_admin -->
+                    {item_menu}
+                    <!-- END BLOCK : item_menu_admin -->
+
+                    <!-- END BLOCK : menu_admin -->
+                </ul>
+
+            </div><!-- leftpanel -->
+
+            <div class="mainpanel">
+                <!-- INCLUDE BLOCK : content -->
+            </div><!-- mainpanel -->
+        </div><!-- mainwrapper -->
+    </section>
+
+
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="js/jquery-ui-1.10.3.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.min.js"></script>
+    <script src="js/pace.min.js"></script>
+    <!--<script src="js/retina.min.js"></script>-->
+    <script src="js/jquery.cookies.js"></script>
+
+    <script type="text/javascript">
+        // Load menu collapsed
+        var checkMenu = $.cookie("app-menu");
+        // console.log($.cookie('menu'));
+        if (checkMenu == 'false') {
+            $('.headerwrapper, .mainwrapper').addClass('collapsed');
+            $('.children').hide();
+        }
+    </script>
+
+    <script src="js/flot/jquery.flot.min.js"></script>
+    <script src="js/flot/flot.pie.min.js"></script>
+    <script src="js/flot/jquery.flot.resize.min.js"></script>
+    <script src="js/flot/jquery.flot.spline.min.js"></script>
+    <script src="js/morris.min.js"></script>
+    <script src="js/raphael-2.1.0.min.js"></script>
+    <script src="js/jquery.sparkline.min.js"></script>
+    <!--<script src="js/bootstrap-wizard.min.js"></script>-->
+    <script src="js/select2.js"></script>
+
+    <script src="js/jquery.mask.min.js"></script>
+    <!--<script src="js/bootstrap-timepicker.min.js"></script>-->
+    <script src="js/jquery.form.js"></script>
+
+    <script src="js/jquery.dataTables.js"></script>
+    <script src="js/dataTables.bootstrap.js"></script>
+    <script src="js/dataTables.responsive.js"></script>
+    <script src="js/dataTables.date-eu.js"></script>
+    <script src="js/dataTables.date-de.js"></script>
+
+    <script src="js/ckeditor/ckeditor.js"></script>
+    <script src="js/ckeditor/adapters/jquery.js"></script>
+
+    <script src="js/jquery.prettyPhoto.js"></script>
+
+    <script src="js/bootbox.min.js"></script>
+    <script src="js/js.functions.js?20190614152000"></script>
+    <script src="js/js.functions-ajax.js?20190614152000"></script>
+    <script src="js/js.busca-cep.js"></script>
+
+    <!--<script src="js/dropzone.min.js"></script>
+        <script src="js/jquery-multidownload.js"></script>-->
+
+    <script src="js/jquery.tagsinput.min.js"></script>
+    <!-- <script src="js/wysihtml5-0.3.0.min.js"></script> -->
+    <!-- <script src="js/bootstrap-wysihtml5.js"></script> -->
+
+    <!-- <script src="js/jquery.fancybox.js"></script>-->
+    <script src="js/ui.datepicker-pt-BR.js"></script>
+    <script src="js/custom.js?20190614152000"></script>
+    <script src="js/validation-forms.js?20190614152000"></script>
+    <!--<script src="js/dashboard.js"></script>-->
+
+    <!-- START BLOCK : grafico_nivel_crescimento -->
+    <script type="text/javascript">
+        Morris.Bar({
+            element: 'area-example',
+            data: [
+                { dados_grafico_nivel_crescimento }
+            ],
+            xkey: 'month',
+            ykeys: ['usuarios', 'vendas'],
+            labels: ['Usuários', 'Vendas'],
+            resize: true,
+            redraw: true
+        });      
+    </script>
+    <!-- END BLOCK : grafico_nivel_crescimento -->
+
+    <!-- START BLOCK : grafico_evolucao_usuarios -->
+    <!-- <script type="text/javascript">
+            var data = {dados_grafico_evolucao_usuarios};
+
+            $.plot('#donut-chart3', data, {
+                series: {
+                    pie: { 
+                        show: true,
+                        radius: 1,
+                        tilt: 0.7,
+                        innerRadius: 0.6,
+                        label: {
+                            show: true,
+                            radius: 1,
+                            formatter: labelFormatter,
+                            background: {
+                                opacity: 0.8,
+                                color: '#504d4f'
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    show: true
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true
+                }
+            });
+
+            function labelFormatter(label, series) {
+                return "<div style='font-size:8pt; text-align:center; padding:2px; color:#FFF;'>" + label + "<br/>" + parseFloat(series.percent.toFixed(1)) + "%</div>";
+            }
+        </script> -->
+    <script type="text/javascript">
+        Morris.Bar({
+            element: 'area-example2',
+            data: { dados_grafico_evolucao_usuarios },
+            xkey: 'regional',
+            ykeys: ['mes_anterior', 'mes_atual'],
+            labels: ['Mês Anterior', 'Mês Atual'],
+            resize: true,
+            redraw: true,
+            xLabelAngle: 50,
+            resize: true,
+            barColors: ["#293b61","#fbbbc04"],
+            // stacked:true,
+            // grid:true,
+            gridTextSize: 8
+        });      
+    </script>
+    <!-- END BLOCK : grafico_evolucao_usuarios -->
+
+    <!-- START BLOCK : grafico_evolucao_lojas -->
+    <!-- <script type="text/javascript">
+            var data = {dados_grafico_evolucao_lojas};
+
+            $.plot('#donut-chart4', data, {
+                series: {
+                    pie: { 
+                        show: true,
+                        radius: 1,
+                        tilt: 0.7,
+                        innerRadius: 0.6,
+                        label: {
+                            show: true,
+                            radius: 1,
+                            formatter: labelFormatter,
+                            background: {
+                                opacity: 0.8,
+                                color: '#504d4f'
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    show: true
+                },
+                grid: {
+                    hoverable: true,
+                    clickable: true
+                }
+            });
+
+            function labelFormatter(label, series) {
+                return "<div style='font-size:8pt; text-align:center; padding:2px; color:#FFF;'>" + label + "<br/>" + parseFloat(series.percent.toFixed(1)) + "%</div>";
+            }
+        </script> -->
+    <script type="text/javascript">
+        Morris.Bar({
+            element: 'area-example3',
+            data: { dados_grafico_evolucao_lojas },
+            xkey: 'regional',
+            ykeys: ['mes_anterior', 'mes_atual'],
+            labels: ['Mês Anterior', 'Mês Atual'],
+            resize: true,
+            redraw: true,
+            xLabelAngle: 50,
+            resize: true,
+            barColors: ["#F44336", "#5C6BC0"],
+            // stacked:true,
+            // grid:true,
+            gridTextSize: 8
+        });      
+    </script>
+    <!-- END BLOCK : grafico_evolucao_lojas -->
+</body>
+
+</html>

@@ -1,0 +1,125 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-bullhorn"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Promoções</li>
+            </ul>
+            <h4>Promoções</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_promocoes" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+			            <th>Título</th>
+			            <!-- <th>Tipo</th> -->
+			            <th class="text-center">Ações</th>
+			        </tr>
+			    </thead>
+
+			    <tbody>      
+
+			    <!-- START BLOCK : promocoes -->
+				<tr>
+				    <td>{titulo}</td>
+			        <!-- <td>{tipo}</td> -->
+			        <td class="table-action text-center">
+			        	<span class="{layout-editar}">
+			        		{status}
+			        		<a href="promocoes-editar?id={id}" data-toggle="tooltip" title="Editar" class="tooltips"><i class="fa fa-pencil"></i></a>
+			        	</span>
+			        	<span class="{layout-excluir}"> 
+			        		<a href="javascript:void(0)" onclick="deletePromocoes({id}, 'promocoes_delete', '{titulo}')" data-toggle="tooltip" title="Excluir" class="delete-row tooltips"><i class="fa fa-trash-o"></i></a>
+			        	</span>		                
+			        </td>
+				</tr>
+			    <!-- END BLOCK : promocoes -->
+
+				</tbody>
+			</table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane {layout-cadastrar}" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-10">
+                    <form id="form-promo" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+		                <input type="hidden" name="act" value="promocoes_cadastrar" /> 
+		                <div class="panel panel-default">
+		                    <div class="panel-body">
+		                        <div class="alert alert-warning">
+		                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+		                        </div>
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Título *</label>
+		                            <div class="col-sm-9">
+		                                <input type="text" name="titulo" class="form-control" />
+		                            </div>
+		                        </div><!-- form-group -->
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Descrição *</label>
+		                            <div class="col-sm-9">
+		                               <textarea class="form-control" name="descricao" rows="8"></textarea>
+		                            </div>
+		                        </div><!-- form-group -->
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Produto</label>
+		                            <div class="col-sm-9">
+		                               <select data-placeholder="Selecione um Produto" name="produto" class="width100p select-basic">
+		                                    <option></option>
+		                                    <!-- START BLOCK : produtos -->
+		                                    <option value="{id}" {selected}>{codigo} - {titulo}</option>
+		                                    <!-- END BLOCK : produtos -->
+		                                </select>
+		                            </div>
+		                        </div><!-- form-group -->                      
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Imagem</label>
+		                            <div class="col-sm-9">
+		                               <input type="file" name="img" class="form-control" />
+		                               <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. <!--<br> A imagem deve possuir as seguintes dimensões 1920px x 1080px--></span>  
+		                            </div>
+		                        </div><!-- form-group -->		                        
+								
+		                        <div class="alert alert-danger alert-hide text-center"></div>
+		                    </div><!-- panel-body -->
+		                    <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Cadastrar</button>
+                            </div><!-- panel-footer -->
+		                    
+		                </div><!-- panel -->
+		            </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

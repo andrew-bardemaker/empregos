@@ -1,0 +1,386 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart" style="font-size: 26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Vendas</li>
+                <li>Visualizar</li>
+            </ul>
+            <h4>Vendas</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dados Venda</h4>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">#ID</label>                            
+                                <input type="text" name="" value="{id_pedido}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Data/ Hora Registro</label>                            
+                                <input type="text" name="" value="{data_hora_registro}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Status</label>                            
+                                <input type="text" name="" value="{status}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Total Pedido R$</label>                            
+                                <input type="text" name="" value="{total_pedido}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">CPF</label>                            
+                                <input type="text" name="" value="{cpf}" class="form-control cpf" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Nome</label>                            
+                                <input type="text" name="" value="{nome}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>   
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Observações</label>       
+                                <textarea class="form-control" name="observacoes" rows="8" readonly="readonly">{observacoes}</textarea>                     
+                            </div><!-- form-group -->
+                        </div>               
+                    </div>
+
+                    <hr>
+                    <h4>Informações de pagamento</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Número do pedido gerado pelo estabelecimento</label>                            
+                                <input type="text" name="" value="{rede_reference}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">TID - Número identificador único da transação</label>                            
+                                <input type="text" name="" value="{rede_tid}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>                         
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">NSU - Número sequencial retornado pela Rede</label>                            
+                                <input type="text" name="" value="{rede_nsu}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Authorization Code - Número da autorização da transação retornada pelo emissor do cartão</label>                            
+                                <input type="text" name="" value="{rede_authorization_code}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">6 primeiros dígitos do cartão</label>                            
+                                <input type="text" name="" value="{rede_card_bin}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>   
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">4 últimos dígitos do cartão</label>                            
+                                <input type="text" name="" value="{rede_last4}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>    
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Data/ Hora Registro</label>                            
+                                <input type="text" name="" value="{rede_date_time}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>         
+                    </div>
+
+                    <hr>
+                    <h4>Endereço Entrega</h4>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">CEP</label>                            
+                                <input type="text" name="" value="{cep}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Bairro</label>                            
+                                <input type="text" name="" value="{bairro}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                         
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="control-label">Cidade</label>                            
+                                <input type="text" name="" value="{cidade}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Complemento</label>                            
+                                <input type="text" name="" value="{complemento}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">UF</label>                            
+                                <input type="text" name="" value="{uf}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>   
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label">Endereço</label>                            
+                                <input type="text" name="" value="{endereco}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>    
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">Número</label>                            
+                                <input type="text" name="" value="{numero}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>         
+                    </div>
+
+                    <hr>
+                    <h4>Produtos</h4>
+                    <div class="table-responsive mb20">          
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Valor R$</th>
+                                    <th>Qntd</th>
+                                    <th class="text-center">Valor Total R$</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- START BLOCK : produtos -->
+                                <tr>
+                                    <td>{titulo_produto}</td>
+                                    <td>{valor_produto}</td>
+                                    <td>{qntd}</td>
+                                    <td class="text-center">{valor_total_produto}</td>
+                                </tr>
+                                <!-- END BLOCK : produtos -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+                    <h4>Dados Entregador</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">ID</label>                            
+                                <input type="text" name="" value="{entregador_id}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Nome/ Login</label>                            
+                                <input type="text" name="" value="{entregador_nome} / {entregador_login}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>              
+                    </div>
+
+                    <hr>
+                    <h4>Histórico Transferências Entregadores</h4>
+                    <div class="table-responsive mb20">          
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Data/ Hora</th>
+                                    <th>Entregador Remetente</th>
+                                    <th>Entregador Destinatário</th>
+                                    <th>Status do Pedido</th>
+                                    <th>Observações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- START BLOCK : historico_transferencias -->
+                                <tr>
+                                    <td>{data_hora_registro}</td>
+                                    <td>{entregador_remetente}</td>
+                                    <td>{entregador_destinatario}</td>
+                                    <td>{status}</td>
+                                    <td>{observacoes}</td>
+                                </tr>
+                                <!-- END BLOCK : historico_transferencias -->
+
+                                <!-- START BLOCK : nohistorico_transferencias -->
+                                <tr>
+                                    <td colspan="5">Nenhum registro encontrado.</td>
+                                </tr>
+                                <!-- END BLOCK : nohistorico_transferencias -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <hr>
+                    <h4>Histórico Status</h4>
+                    <div class="table-responsive mb20">          
+                        <table class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Data/ Hora</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- START BLOCK : historico_status -->
+                                <tr>
+                                    <td>{data_hora_registro}</td>
+                                    <td>{status}</td>
+                                </tr>
+                                <!-- END BLOCK : historico_status -->
+                            </tbody>
+                        </table>
+                    </div>                    
+                    <hr>
+                    <h4>Informações NFC-e</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Status NFCe</label>                            
+                                <input type="text" name="" value="{status_nfce}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <!-- START BLOCK : infos_nfce -->
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">CNPJ Emitente</label>                            
+                                <input type="text" name="" value="{nf_cnpj_emitente}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Referência</label>                            
+                                <input type="text" name="" value="{nf_ref}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>                         
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Status</label>                            
+                                <input type="text" name="" value="{nf_status_titulo}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>   
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Mensagem SEFAZ</label>                            
+                                <input type="text" name="" value="{nf_mensagem_sefaz}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>    
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label">Chave Acesso</label>                            
+                                <input type="text" name="" value="{nf_chave_nfe}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">Número</label>                            
+                                <input type="text" name="" value="{nf_numero}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">Série</label>                            
+                                <input type="text" name="" value="{nf_serie}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-12">
+                            <div class="table-responsive mb20"> 
+                                <table class="table table-bordered table-hover table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Campo</th>
+                                            <th>Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>XML Nota Fiscal</td>
+                                            <td><p><a href="{nf_caminho_xml_nota_fiscal}" target="_blank">{nf_caminho_xml_nota_fiscal}</a></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>DANFe</td>
+                                            <td><p><a href="{nf_caminho_danfe}" target="_blank">{nf_caminho_danfe}</a></p></td>
+                                        </tr>                                    
+                                        <tr>
+                                            <td>QRCode URL</td>
+                                            <td><p><a href="{nf_qrcode_url}" target="_blank">{nf_qrcode_url}</a></p></td>
+                                        </tr>
+                                        <tr>
+                                            <td>URL Consulta Nota Fiscal</td>
+                                            <td><p><a href="{nf_url_consulta_nf}" target="_blank">{nf_url_consulta_nf}</a></p></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- END BLOCK : infos_nfce --> 
+                    </div>
+                    
+
+                    <!-- START BLOCK : infos_cancelamento -->
+                    <hr>
+                    <h4>Informações de cancelamento</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Observações Cancelamento</label>       
+                                <textarea class="form-control" name="observacoes_cancelamento" rows="8" readonly="readonly">{observacoes_cancelamento}</textarea>                     
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Código de retorno da solicitação de cancelamento gerado pela Rede.</label>                            
+                                <input type="text" name="" value="{rede_refund_id}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>  
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">TID - Número identificador único da transação</label>                            
+                                <input type="text" name="" value="{rede_refund_tid}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>                         
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">NSU - Número sequencial retornado pela Rede</label>                            
+                                <input type="text" name="" value="{rede_refund_nsu}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>   
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Data/ Hora Registro</label>                            
+                                <input type="text" name="" value="{rede_refund_date_time}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>         
+                    </div>
+                    <!-- END BLOCK : infos_cancelamento -->
+                </div><!-- panel-body -->                    
+            </div><!-- panel -->
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

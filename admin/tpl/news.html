@@ -1,0 +1,130 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-newspaper-o" style="font-size:26px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Novidades</li>
+            </ul>
+            <h4>Novidades</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#list" data-toggle="tab"><strong>Listar</strong></a></li>
+        <li class="{layout-cadastrar}"><a href="#register" data-toggle="tab"><strong>Cadastrar</strong></a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content mb30">
+        <div class="tab-pane active" id="list">
+            <!-- LISTA -->
+            <table id="list_news" class="table table-striped table-bordered responsive">
+			    <thead>
+			        <tr>
+			        	<th>Data</th>
+			            <th>Título</th>
+			            <th class="text-center">Ações</th>
+			        </tr>
+			    </thead>
+
+			    <tbody>      
+
+			    <!-- START BLOCK : news -->
+				<tr>
+					<td>{data}</td>
+				    <td>{titulo}</td>
+			        <td class="table-action text-center">
+			        	<span class="{layout-editar}">
+			        		{status}      	
+			        		<a href="news-editar?id={id}" data-toggle="tooltip" title="Editar" class="tooltips"><i class="fa fa-pencil"></i></a>
+			        	</span>
+			        	<span class="{layout-excluir}">
+		                	<a href="javascript:void(0)" onclick="deleteNews({id}, 'news_delete', '{titulo}')" data-toggle="tooltip" title="Excluir" class="delete-row tooltips"><i class="fa fa-trash-o"></i></a>
+		                </span>
+			        </td>
+				</tr>
+			    <!-- END BLOCK : news -->
+
+				</tbody>
+			</table>
+            <!--  END LISTA  -->
+        </div><!-- tab-pane -->
+      
+        <div class="tab-pane" id="register">
+            <!-- CADASTRO -->
+            <div class="row">        
+                <div class="col-md-10">
+                     <form id="form-news" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+		                <input type="hidden" name="act" value="news_cadastrar" /> 
+		                <div class="panel panel-default">
+		                    <div class="panel-body">
+		                        <div class="alert alert-warning">
+		                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+		                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+		                        </div>
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Data *</label>
+		                            <div class="col-sm-9">
+		                               <div class="input-group">
+		                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+		                                    <input type="text" name="data" class="form-control date" />
+		                                </div>
+		                            </div>
+		                        </div><!-- form-group -->
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Título *</label>
+		                            <div class="col-sm-9">
+		                                <input type="text" name="titulo" class="form-control" />
+		                            </div>
+		                        </div><!-- form-group -->
+		                    
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Texto</label>
+		                            <div class="col-sm-9">
+		                               <textarea class="form-control text-area2" name="texto" rows="8"></textarea>
+		                            </div>
+		                        </div> 
+
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Tags</label>
+		                            <div class="col-sm-9">
+		                                <input name="tags" id="tags" class="form-control" value="bejobs APP" />
+		                            </div>
+		                        </div><!-- form-group --> 
+								
+		                        <div class="form-group">
+		                            <label class="col-sm-3 control-label">Imagem *</label>
+		                            <div class="col-sm-9">
+		                               <input type="file" name="img" class="form-control" />
+		                               <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. </span>  
+		                            </div>
+		                        </div><!-- form-group --> 
+
+		                        <div class="alert alert-danger alert-hide text-center"></div>
+		                    </div><!-- panel-body -->
+		                    <div class="panel-footer text-right">
+		                    	<img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+		                        <button class="btn btn-default mr5">Cadastrar</button>
+		                    </div><!-- panel-footer -->
+		                    
+		                </div><!-- panel -->
+		            </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->      
+    </div><!-- tab-content --> 
+
+	<div class="mb20"></div>
+
+</div>

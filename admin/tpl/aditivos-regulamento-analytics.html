@@ -1,0 +1,85 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-book" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Aditivos Regulamento</li>
+                <li>Estatísticas</li>
+            </ul>
+            <h4>Aditivos Regulamento</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Título Aditivo Regulamento: {titulo}</h4>
+
+                    <hr>
+                    
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <h5 class="text-uppercase">Total Usuários</h5>
+                            <h2 class="mt10">{total_usuarios}</h2>
+                        </div>
+                        <!-- <div class="col-sm-4 text-center">
+                            <h5 class="text-uppercase">Total Pessoa Física</h5>
+                            <h2 class="mt10">{total_pf}</h2>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <h5 class="text-uppercase">Total Pessoa Jurídica</h5>
+                            <h2 class="mt10">{total_pj}</h2>
+                        </div> -->
+                    </div>
+
+                    <hr>
+
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#list" data-toggle="tab"><strong>Usuários</strong></a></li>
+                    </ul>
+
+                    <div class="tab-content mb30">
+                        <div class="tab-pane active" id="list">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered mb30 mt10">
+                                    <thead>
+                                      <tr>
+                                        <th>Data Registro</th>
+                                        <th>Nome</th>
+                                        <th>CPF</th>
+                                        <th>IP Registro</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody>
+                                      <!-- START BLOCK : usuarios --> 
+                                      <tr>
+                                        <td>{data_registro}</td>
+                                        <td>{nome}</td>
+                                        <td>{cpf}</td>
+                                        <td>{ip_registro}</td>
+                                      </tr>
+                                      <!-- END BLOCK : usuarios --> 
+
+                                      <!-- START BLOCK : nousuarios --> 
+                                      <tr>
+                                        <td colspan="4">Nenhum usuário encontrado</td>
+                                      </tr>
+                                      <!-- END BLOCK : nousuarios --> 
+                                    </tbody>
+                                </table>
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

@@ -1,0 +1,239 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-shopping-cart" style="font-size:28px;"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./dashboard"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Produtos</li>
+                <li>Editar</li>
+            </ul>
+            <h4>Produtos</h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-10">
+            <form id="form-produtos" class="form-horizontal form-bordered" action="_process_request.php" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="act" value="produtos_editar" />
+                <input type="hidden" name="id" value="{id}" />
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="alert alert-warning">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Código *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="codigo" value="{codigo}" class="form-control numero" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Título *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="titulo" value="{titulo}" class="form-control" />
+                            </div>
+                        </div><!-- form-group -->
+                    
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Descrição</label>
+                            <div class="col-sm-9">
+                               <textarea class="form-control" name="texto" rows="8">{texto}</textarea>
+                            </div>
+                        </div><!-- form-group -->     
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Preço *</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="preco" value="{preco}" class="form-control money" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Preço Promocional</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="preco_promo" value="{preco_promo}" class="form-control money" />
+                            </div>
+                        </div>     
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Marca *</label>
+                            <div class="col-sm-9">
+                               <select data-placeholder="Marca *" name="marca" class="width100p select-search-hide">
+                                    <option value="">Selecione a Marca</option>
+                                    <!-- START BLOCK : marcas -->
+                                    <option value="{id}" {selected}>{titulo}</option>
+                                    <!-- END BLOCK : marcas -->                 
+                                </select>
+                            </div>
+                        </div><!-- form-group -->     
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Categoria *</label>
+                            <div class="col-sm-9">
+                               <select data-placeholder="Categoria *" name="categ" class="width100p select-search-hide">
+                                    <option value="">Selecione a Categoria</option>
+                                    <!-- START BLOCK : categorias -->
+                                    <option value="{id}" {selected}>{titulo}</option>
+                                    <!-- END BLOCK : categorias -->                 
+                                </select>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Tags</label>
+                            <div class="col-sm-9">
+                                <input name="tags" id="tags" class="form-control" value="{tags}" />
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem Principal *</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img -->
+                                <div class="row media-manager">
+                                    <div class="col-xs-12 col-sm-5 col-md-5 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/produtos/{id}.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'produtos_delete_img')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/produtos/{id}_800x600.jpg" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img -->
+                                <!-- START BLOCK : noimg -->
+                                <input type="file" name="img" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. Dimensões mínimas ideais: 500px X 500px e com fundo branco.  </span>  
+                               <!-- END BLOCK : noimg --> 
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Imagem 2</label>
+                            <div class="col-sm-9">
+                                <!-- START BLOCK : img2 -->
+                                <div class="row media-manager">
+                                    <div class="col-xs-12 col-sm-5 col-md-5 document">
+                                        <div class="thmb">
+                                            <div class="btn-group fm-group">
+                                                <button type="button" class="btn btn-default dropdown-toggle fm-toggle" data-toggle="dropdown">
+                                                    <span class="caret"></span>
+                                                </button>
+                                                <ul class="dropdown-menu fm-menu pull-right" role="menu">
+                                                    <li><a href="../images/produtos/{id}_2.jpg" download><i class="fa fa-download"></i> Download</a></li>
+                                                    <li><a href="javascript:void(0)" onclick="deleteImg({id}, 'produtos_delete_img_2')"><i class="fa fa-trash-o"></i> Delete</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="thmb-prev">
+                                                <img src="../images/produtos/{id}_2_800x600.jpg" class="img-responsive" alt="" />
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <!-- END BLOCK : img2 -->
+                                <!-- START BLOCK : noimg2 -->
+                                <input type="file" name="img_2" class="form-control" />
+                                <span class="help-block">A imagem deve ser no formato JPG e deve possuir no máximo 2MB de tamanho. Dimensões mínimas ideais: 500px X 500px e com fundo branco.  </span>  
+                               <!-- END BLOCK : noimg2 --> 
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="col-md-12">
+                            <h4 class="mt20">Dados Fiscais</h4>
+                            <hr>
+                        </div>   
+                        
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Código NCM</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="codigo_ncm" value="{codigo_ncm}" class="form-control" />
+                                <span class="help-block">Código NCM do produto (8 dígitos).</span>
+                            </div>
+                        </div><!-- form-group --> 
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">CFOP - Código Fiscal da operação</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="cfop" value="{cfop}" class="form-control" />
+                                <span class="text-block">Código Fiscal da operação. Utilize algum CFOP da operação válido para Nota ao Consumidor.</span>
+                            </div>
+                        </div><!-- form-group --> 
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ICMS Origem</label>
+                            <div class="col-sm-9">
+                                <select data-placeholder="ICMS Origem *" name="icms_origem" class="width100p select-search-hide">
+                                    <option value="">Selecione ICMS Origem</option>
+                                    {icms_origem}          
+                                </select>
+                            </div>
+                        </div><!-- form-group --> 
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ICMS Situação Tributária</label>
+                            <div class="col-sm-9">
+                               <select data-placeholder="ICMS Situação Tributária" name="icms_situacao_tributaria" class="width100p select-search-hide">
+                                    <option value="">Selecione ICMS Situação Tributária</option>                                   
+                                    {icms_situacao_tributaria}
+                                </select>
+                            </div>
+                        </div><!-- form-group --> 
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ICMS Aliquota</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="icms_aliquota" value="{icms_aliquota}" placeholder="00" class="form-control" />
+                                <span class="help-block">Obrigatório se ICMS Situação Tributária = 00. Alíquota do ICMS. Deve estar entre 0 e 100.</span>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <!-- <div class="form-group">
+                            <label class="col-sm-3 control-label">Base de cálculo do ICMS</label>
+                            <div class="col-sm-9">
+                                <input type="text" name="icms_base_calculo" placeholder="00" class="form-control" />
+                                <span class="help-block">Obrigatório se ICMS Situação Tributária = 00. Base de cálculo do ICMS.</span>
+                            </div> 
+                        </div> form-group -->
+
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ICMS Modalidade Base Calculo</label>
+                            <div class="col-sm-9">
+                                <select data-placeholder="ICMS Modalidade Base Calculo" name="icms_modalidade_base_calculo" class="width100p select-search-hide">
+                                    <option value="">Selecione ICMS Modalidade Base Calculo</option>         
+                                    {icms_modalidade_base_calculo}  
+                                </select>
+                                <span class="help-block">Obrigatório se ICMS Situação Tributária = 00.</span>
+                            </div>
+                        </div><!-- form-group -->
+
+                        <div class="alert alert-danger alert-hide text-center">
+                            {msg}
+                        </div>
+                    </div><!-- panel-body -->
+                    <div class="panel-footer text-right">
+                        <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                        <button class="btn btn-default mr5">Atualizar</button>
+                    </div><!-- panel-footer -->
+                    
+                </div><!-- panel -->
+            </form>
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

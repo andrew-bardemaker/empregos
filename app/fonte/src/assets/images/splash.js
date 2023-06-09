@@ -1,0 +1,1 @@
+export const splashLaranja = 'https://dedstudio.com.br/dev/bejobs/img/splash.png';

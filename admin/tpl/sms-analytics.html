@@ -1,0 +1,85 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>SMS</li>
+                <li>Estatísticas</li>
+            </ul>
+            <h4>SMS</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dados SMS</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Título</label>                            
+                                <input type="text" name="" value="{titulo}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Texto</label>                            
+                                <textarea class="form-control" name="texto" rows="8" readonly="readonly">{texto}</textarea>                            
+                            </div><!-- form-group -->
+                        </div> 
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Destinatários *</label>
+                                <div class="radio block"><label><input type="radio" name="participantes" value="1" disabled {usuarios_proclube}> Todos Usuários bejobs App</label></div>
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="2" disabled {grupos_economicos}> Grupos Econômicos</label></div> -->
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="3" disabled {lojas}> Lojas</label></div> -->
+                                <div class="radio block"><label><input type="radio" name="participantes" value="4" disabled {grupos_usuarios}> Grupos de Usuários</label></div>
+                                <div class="radio block"><label><input type="radio" name="participantes" value="5" disabled {usuarios_individual}> Usuários Individual</label></div>
+                                <!-- <div class="radio block"><label><input type="radio" name="participantes" value="6" disabled {usuarios_reputacao}> Reputação Usuários</label></div> -->
+                            </div><!-- form-group -->
+                        </div>                        
+                    </div>
+
+                    <hr>
+
+                    <div class="table-responsive">          
+                        <table id="list_sms_usuarios" class="table table-bordered table-hover table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>CPF</th>
+                                    <!-- <th>Tipo Usuário</th> -->
+                                    <th>Telefone Celular</th>
+                                    <!-- <th>Posto</th> -->
+                                    <th>Status Requisição</th>
+                                    <th>Status Envio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- START BLOCK : usuarios -->
+                                <tr>
+                                    <td>{nome}</td>
+                                    <td>{cpf_cnpj}</td>
+                                    <!-- <td>{tipo_usuario}</td> -->
+                                    <td>{telefone}</td>
+                                    <!-- <td>{posto_colaborador}</td> -->
+                                    <td>{status_requisicao}</td>
+                                    <td>{status_envio}</td>
+                                </tr>
+                                <!-- END BLOCK : usuarios -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div><!-- row -->  
+</div><!-- contentpanel -->

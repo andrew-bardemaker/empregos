@@ -1,0 +1,112 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Controle de Estoque/ Geral</li>
+            </ul>
+            <h4>Controle de Estoque/ Geral</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+	{msg}
+
+	<div class="panel panel-default">
+        <div class="panel-body">
+            <form class="form-inline row" act="./controle-de-estoque" method="GET">
+                <div class="col-md-12">
+                    <div class="alert alert-warning">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                    </div>
+                </div>  
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="tipo">Período</label>
+                    <select data-placeholder="" name="periodo" id="periodo" class="width100p select-search-hide">
+                        <option value=""></option>
+                        <option value="today" data-period="{today}" {today_selected}>Hoje</option>
+                        <option value="yesterday" data-period="{yesterday}" {yesterday_selected}>Ontem</option>
+                        <option value="last_week" data-period="{last_week}" {last_week_selected}>Última Semana</option>
+                        <option value="last_30_days" data-period="{last_30_days}" {last_30_days_selected}>Últimos 30 dias</option>
+                        <option value="last_6_months" data-period="{last_6_months}" {last_6_months_selected}>Últimos 6 meses</option>
+                        <option value="last_12_months" data-period="{last_12_months}" {last_12_months_selected}>Últimos 12 meses</option>
+                        <option value="custom" data-period="{custom}" {custom_selected}>Personalizado</option>
+                    </select>
+                </div>
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="data_ini">Data Início</label>
+                    <input type="text" name="data_ini" id="data_ini" value="{data_ini}" class="form-control date datepicker width100p"/>
+                </div>
+                <div class="form-group pb15 col-sm-4" style="margin-right: 0;">
+                    <label for="data_fim">Data Fim</label>
+                    <input type="text" name="data_fim" id="data_fim" value="{data_fim}" class="form-control date datepicker width100p"/>
+                </div>
+                <div class="col-sm-12" style="margin-right: 0;">
+                    <button type="submit" class="btn btn-default" style="margin-top: 25px;">Buscar</button>
+                    <a href="./controle-de-estoque" class="btn btn-default ml10" style="margin-top: 25px;">Limpar</a> 
+                </div> 
+                <div class="clearfix"></div>         
+            </form>
+            <hr>
+            <div class="btn-group mb20">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Exportar <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <!-- <li><a href="./relatorios/vendas-pdf?cpf={cpf}&entregador={entregador}&data_ini={data_ini}&data_fim={data_fim}"><i class="fa fa-file-pdf-o mr5" aria-hidden="true"></i> PDF</a></li> -->
+                    <li><a href="./controle-de-estoque-xls?data_ini={data_ini}&data_fim={data_fim}"><i class="fa fa-file-excel-o mr5" aria-hidden="true"></i> XLS</a></li>
+                </ul>
+            </div><!-- btn-group -->           
+            <div class="clearfix"></div>
+            <div class="table-responsive">          
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr> 
+                            <th>Código Produto</th>
+                            <th>Descrição</th>
+                            <th>Categoria</th>
+                            <th>Marca</th>
+                            <th>Valor Total Compras R$</th>
+                            <th>Qtde Total Compras</th>
+                            <th>Valor Total Vendas R$</th>
+                            <th>Qtde Total Vendas</th>
+                            <th>Qtde Total Baixas</th>
+                            <th>Estoque</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- START BLOCK : estoque -->
+                        <tr> 
+                            <td>{codigo_produto}</td>
+                            <td>{descricao_produto}</td>
+                            <td>{categoria}</td>
+                            <td>{marca}</td>
+                            <td>{valor_total_compras}</td>
+                            <td>{qtde_total_compras}</td>
+                            <td>{valor_total_vendas}</td>
+                            <td>{qtde_total_vendas}</td>
+                            <td>{qtde_total_baixas}</td>
+                            <td>{total}</td>
+                        </tr> 
+                        <!-- END BLOCK : estoque -->
+
+                        <!-- START BLOCK : no-estoque -->
+                        <tr> 
+                            <td colspan="10">Nenhum registro encontrado.</td> 
+                        </tr> 
+                        <!-- END BLOCK : no-estoque -->
+
+                    </tbody>
+                </table>
+            </div>
+        </div> 
+    </div>
+
+	<div class="mb20"></div>
+
+</div>

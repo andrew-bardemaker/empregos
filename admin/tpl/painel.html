@@ -1,0 +1,215 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa fa-home"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Painel</li>
+            </ul>
+            <h4>Painel</h4>
+        </div>
+    </div><!-- media -->
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+
+    <!-- START BLOCK : painel-admin -->
+    <div class="row row-stat">
+
+        <!-- START BLOCK : horariofuncionamento_aberto -->
+        <div class="col-sm-12">
+            <div class="alert alert-success">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                <h5 class="mb5 mt5"><strong>Estamos Abertos!</strong> {data_inicio} {hora_inicio} até {data_fim}
+                    {hora_fim}</h5>
+            </div>
+        </div>
+        <!-- END BLOCK : horariofuncionamento_aberto -->
+
+        <!-- START BLOCK : horariofuncionamento_fechado -->
+        <div class="col-sm-12">
+            <div class="alert alert-danger">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                <h5 class="mb5 mt5"><strong>Estamos Fechados!</strong> Próximo horário de abertura: {data_inicio}
+                    {hora_inicio}</h5>
+            </div>
+        </div>
+        <!-- END BLOCK : horariofuncionamento_fechado -->
+
+        <div class="col-md-2">
+            <div class="panel panel-success-alt noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-user"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>USUÁRIOS <br> ATIVOS</strong></h5>
+                        <h1 class="mt5 mb8">{qntd_usuarios}</h1>
+                        <a href="./usuarios">
+                            <h6 class="md-title nomargin">VER USUÁRIOS</h6>
+                        </a>
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-3 -->
+
+        <div class="col-md-2">
+            <div class="panel panel-primary noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-line-chart"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>VENDAS <br> HOJE</strong></h5>
+                        <h1 class="mt5 mb8">{qntd_vendas}</h1>
+                        <a href="./vendas">
+                            <h6 class="md-title nomargin">VER PEDIDOS</h6>
+                        </a>
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-3 -->
+
+
+        <div class="col-md-2">
+            <div class="panel panel-vagas-pendente noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-commenting"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>CHAMADOS <br> EM ATENDIMENTO</strong></h5>
+                        <h1 class="mt5 mb8">{qntd_chamados}</h1>
+                        <a href="./chamados">
+                            <h6 class="md-title nomargin">VER CHAMADOS</h6>
+                        </a>
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-4 -->
+
+
+        <div class="col-md-2">
+            <div class="panel panel-dark noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-user"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>VAGAS <br> ATIVAS</strong></h5>
+                        <h1 class="mt5 mb8">{qtnd_vagas}</h1>
+                        <a href="./lista-vagas">
+                            <h6 class="md-title nomargin">VER VAGAS</h6>
+                        </a>
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-3 -->
+
+        <div class="col-md-2">
+            <div class="panel panel-vagas noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-user"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>VAGAS <br> PAGAS</strong></h5>
+                        <h1 class="mt5 mb8">{qtnd_vagas_pagas}</h1>
+                        <br />
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-3 -->
+
+        <div class="col-md-2">
+            <div class="panel panel-warning-alt  noborder">
+                <div class="panel-heading noborder">
+                    <div class="panel-icon"><i class="fa fa-user"></i></div>
+                    <div class="media-body text-right">
+                        <h5 class="lg-title nomargin"><strong>VAGAS <br> PAGAMENTO PENDENTE</strong></h5>
+                        <h1 class="mt5 mb8">{qtnd_vagas_pendentes}</h1>
+                        <br />
+                    </div><!-- media-body -->
+                    <div class="clearfix"></div>
+                </div><!-- panel-body -->
+            </div><!-- panel -->
+        </div><!-- col-md-3 -->
+
+    </div><!-- row -->
+
+    <hr>
+    <div class="row row-stat">
+        <div class="col-md-12">
+            <div class="panel panel-default mb0">
+                <div class="panel-body padding15">
+                    <h5 class="lg-title mb10"><strong>Pedidos Aguardando Aprovação</strong></h5>
+                    <!-- <p class="mb20">Confira abaixo os pedidos aguardando aprovação</p> -->
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Data/Hora Registro</th>
+                                    <th>#ID</th>
+                                    <!-- <th>Status</th>                         -->
+                                    <th>CPF</th>
+                                    <th>Nome</th>
+                                    <th>Total Pedido R$</th>
+                                    <th class="desktop tablet text-center">Ações</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <!-- START BLOCK : vendas -->
+                                <tr>
+                                    <td>{data_hora_registro}</td>
+                                    <td>{id}</td>
+                                    <!-- <td>{status}</td>                     -->
+                                    <td>{cpf}</td>
+                                    <td>{nome}</td>
+                                    <td>{total_pedido}</td>
+                                    <td class="table-action text-center">
+                                        <a href="vendas-visualizar?id={id}" data-toggle="tooltip" title="Visualizar"
+                                            class="tooltips"><i class="fa fa-search-plus"></i></a>
+                                    </td>
+                                </tr>
+                                <!-- END BLOCK : vendas -->
+
+                                <!-- START BLOCK : novendas -->
+                                <tr>
+                                    <td colspan="6">Nenhum registro encontrado.</td>
+                                </tr>
+                                <!-- END BLOCK : novendas -->
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="row row-stat">
+        <div class="col-md-12">
+            <div class="panel panel-default mb0">
+                <div class="panel-body padding15">
+                    <h5 class="lg-title"><strong>Gráfico de Nível de Crescimento</strong></h5>
+                    <div id="area-example"></div>
+
+                    <div id="map-container" class="fullwidth-home-map">
+
+                        <div id="map" data-map-zoom="9">
+                            <!-- map goes here -->
+                        </div> 
+                        <a href="#" id="scrollEnabling" title="Enable or disable scrolling on map">Enable Scrolling</a>
+                    </div>
+
+                    <div id="mapa-estabelecimentos">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END BLOCK : painel-admin -->
+
+    <div class="clearfix mb20"></div>
+</div>

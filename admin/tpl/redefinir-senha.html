@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="shortcut icon" href="../admin/images/favicon.ico"/>
+        <title>Redefinir Senha</title>
+
+        <link href="../admin/css/style.default.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    <body class="signin">
+        
+        
+        <section>
+            
+            <div class="panel panel-signin">
+                <div class="panel-body">
+                    <div class="logo text-center">
+                        <img src="../admin/images/logo-primary.png" alt="" class="img-responsive" style="max-width: 180px; margin: 0 auto;">
+                    </div>
+                    <br>
+                    <h4 class="text-center mb5">Redefinir sua Senha</h4>
+
+                    <!-- START BLOCK : link-invalido -->
+                    <div class="alert alert-danger">
+                        Parece que você clicou em um link de redefinição de senha inválido. Por favor, tente novamente <a href="../temp/" class="alert-link">clicando aqui</a> ou acesse o app bejobs App e clique em: Esqueceu sua senha?
+                    </div>
+                    <!-- END BLOCK : link-invalido -->
+
+                    <!-- START BLOCK : redefinir-senha -->                   
+                    <form id="reset-password">
+                        <p class="text-center">Senhas fortes incluem números, letras e sinais de pontuação.</p>
+
+                        <div class="mb20"></div>
+
+                        <input type="hidden" name="act" value="reset_password">
+                        <input type="hidden" name="aut" value="{aut}">
+
+                        <input type="password" name="senha" placeholder="Digite sua nova senha" class="form-control mb15" required>
+
+                        <input type="password" name="senha_confirma" placeholder="Digite sua nova senha mais uma vez" class="form-control mb15" required>  
+
+                        <div class="clearfix mb15">
+                            <div class="pull-left">
+                                <button type="button" class="btn btn-default btn-rounded" id="show-password"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                            </div>
+                            <div class="pull-right">
+                                <button type="submit" class="btn btn-default">Enviar<i class="fa fa-angle-right ml5"></i></button>
+                            </div>
+                        </div>
+                        <div class="alert alert-danger alert-hide"></div>                                        
+                    </form>
+                    <div class="alert alert-success alert-hide">
+                        Sua senha foi redefinida com sucesso. Faça login em sua conta <a href="../" class="alert-link">clicando aqui</a> ou acessando o app bejobs App.
+                    </div> 
+                    <!-- END BLOCK : redefinir-senha -->
+                </div>
+            </div>
+            
+        </section>
+
+
+        <script src="../admin/js/jquery-1.11.1.min.js"></script>
+        <script src="../admin/js/jquery-migrate-1.2.1.min.js"></script>
+        <script src="../admin/js/bootstrap.min.js"></script>
+        <script src="../admin/js/modernizr.min.js"></script>
+        <script src="../admin/js/pace.min.js"></script>
+        <script src="../admin/js/retina.min.js"></script>
+        <script src="../admin/js/jquery.cookies.js"></script>
+        <!-- <script src="../admin/js/jquery.mask.min.js"></script>  -->
+        <script src="../admin/js/jquery.form.js"></script>   
+
+        <script>
+            // jQuery(function(){      
+            //     jQuery('.cpf').mask('000.000.000-00', {clearIfNotMatch: true});
+            // });
+
+            $(document).ready(function(){
+                $('#show-password').on('click', function(){
+                    var field     = $('.form-control');
+                    var fieldType = field.attr('type');
+
+                    if (fieldType == 'password') {
+                        field.attr('type', 'text');
+                        $(this).html('<i class="fa fa-eye-slash" aria-hidden="true"></i>');
+
+                    } else {
+                        field.attr('type', 'password');
+                        $(this).html('<i class="fa fa-eye" aria-hidden="true"></i>');
+                    }
+                });
+            });
+
+            $("#reset-password").submit(function (event) {
+                event.preventDefault();
+                var form           = $(this);
+                var postData       = form.serialize();
+                var status         = form.parent().find(".alert-danger");
+                var status_success = form.parent().find(".alert-success");
+
+                $("#reset-password").ajaxSubmit({
+                    type: "POST",
+                    url: "_process_password.php",
+                    data: postData,
+                    success: function(data) {            
+                        if (data == "success") { 
+                            $("#reset-password").hide();
+                            status.html("").hide();    
+                            status_success.show();            
+
+                        } else if (data == "senha") {
+                            status.html("").hide();
+                            status.html("Informe a senha.").show();
+
+                        } else if (data == "senha_caracteres") {
+                            status.html("").hide();
+                            status.html("A senha deve possuir no mínimo 6 caracteres.").show();
+
+                        } else if (data == "senha_confirma") {
+                            status.html("").hide();
+                            status.html("Repita a senha novamente.").show();
+
+                        } else if (data == "senhas_iguais") {
+                            status.html("").hide();
+                            status.html("As senhas que você digitou não são iguais.").show();
+
+                        } else {
+                            console.log(data);
+                            status.html("").hide();
+                            status.html("Ocorreu um erro, entre em contato com o suporte").show(); 
+                        }
+                    },
+                    error: function () {
+                        status.html("").hide();
+                        status.html("Algo deu errado, tente novamente").show();
+                    }
+                });
+            });
+        </script>
+
+        <style type="text/css">                  
+            html { 
+              background-color: #1f3a4e;
+            }      
+        </style>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-line-chart" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Compras/ Geral</li>
+                <li>Visualizar</li>
+            </ul>
+            <h4>Compras/ Geral</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    
+    <div class="row">        
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h4>Dados da Compra</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Chave de Acesso</label>                            
+                                <input type="text" name="" value="{chave_acesso}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <!-- <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Status</label>                            
+                                <input type="text" name="" value="{status}" class="form-control" readonly="readonly"/>                            
+                            </div>
+                        </div> -->
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">Número</label>                            
+                                <input type="text" name="" value="{n_nfce}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">Série</label>                            
+                                <input type="text" name="" value="{serie}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">Data de Emissão</label>                            
+                                <input type="text" name="" value="{data_emissao}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="control-label">Protocolo</label>                            
+                                <input type="text" name="" value="{protocolo_aut}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Valor Total da Nota Fiscal </label>                            
+                                <input type="text" name="" value="{total_nfce}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <!--<div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Pontuação Total</label>                            
+                                <input type="text" name="" value="{app_pontos}" class="form-control" readonly="readonly"/>                            
+                            </div> form-group 
+                        </div> -->
+                    </div>
+                    <hr>
+                    <h4>Emitente</h4>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Nome / Razão Social</label>                            
+                                <input type="text" name="" value="{emit_nome}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">CNPJ</label>                            
+                                <input type="text" name="" value="{emit_cnpj}" class="form-control cnpj" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Inscrição Estadual</label>                            
+                                <input type="text" name="" value="{emit_ie}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                    </div>
+                    <hr>
+                    <h4>Dados do Destinatário</h4>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">CNPJ/CPF</label>                            
+                                <input type="text" name="" value="{dest_cnpj_cpf}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="control-label">Nome / Razão Social</label>                            
+                                <input type="text" name="" value="{dest_nome}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label">Informações Complementares</label>              
+                                <textarea class="form-control" rows="7" readonly="readonly">{inf_cpl}</textarea>                                   
+                            </div><!-- form-group -->
+                        </div>
+                    </div>
+                    <hr>
+                    <h4>Produtos</h4>
+                    <!-- START BLOCK : compras_produtos -->
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">Código do Produto</label>                            
+                                <input type="text" name="" value="{id_produto}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <label class="control-label">Descrição</label>                            
+                                <input type="text" name="" value="{titulo}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Qtd.</label>                            
+                                <input type="text" name="" value="{qtde}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Valor unitário</label>                            
+                                <input type="text" name="" value="{vl_unit}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label">Valor(R$)</label>                            
+                                <input type="text" name="" value="{vl_total}" class="form-control" readonly="readonly"/>                            
+                            </div><!-- form-group -->
+                        </div>
+                    </div>
+                    <!-- <hr> -->
+                    <!-- END BLOCK : compras_produtos -->
+
+
+                </div><!-- panel-body -->                    
+            </div><!-- panel -->
+        </div>
+    </div><!-- row -->
+    
+</div><!-- contentpanel -->

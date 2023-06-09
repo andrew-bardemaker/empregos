@@ -1,0 +1,105 @@
+<div class="pageheader">
+    <div class="media">
+        <div class="pageicon pull-left">
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="media-body">
+            <ul class="breadcrumb">
+                <li><a href="./painel"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li>Usuários Admin</li>
+            </ul>
+            <h4>Usuários Admin</h4>
+        </div>
+    </div>
+</div><!-- pageheader -->
+
+<div class="contentpanel">
+    {msg}
+
+    
+        <div class="tab-pane {layout-cadastrar}" id="register"> 
+            <div class="row">
+                <div class="col-md-10">
+                    <form id="form-preco-regiao" class="form-horizontal form-bordered " action="_process_request.php"
+                        method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="act" value="preco_regiao_editar" /> 
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="alert alert-warning">
+                                    <button type="button" class="close" data-dismiss="alert"
+                                        aria-hidden="true">&times;</button>
+                                    Os campos com <strong>*</strong> são de preenchimento obrigatório.
+                                </div>
+
+
+                                <!-- START BLOCK : cadastro_lista -->
+                                <input type="hidden" name="id" id="id" value="{id}" />
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Estado *</label>
+                                    <div class="col-sm-9">
+                                        <select onchange="change_state()" data-placeholder="Estado" name="estados" id="estados"
+                                            class="width100p select-search-hide">
+                                            <option value=""></option>
+                                            {estados}
+                                        </select>
+                                    </div>
+                                </div><!-- form-group --> 
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Cidade *</label>
+                                        <div class="col-sm-9">
+                                            <select  data-placeholder="Cidade"  name="cidades" id="cidades"
+                                                class="width100p select-search-hide"> 
+                                                {cidades}
+                                            </select>
+                                        </div>
+                                    </div><!-- form-group -->
+
+                                </form>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Preço *</label>
+                                    <div class="col-sm-9">
+                                        <input type="number"  step=".01" value="{preco}" name="preco" id="preco" class="form-control mb10" />
+                                    </div>
+                                </div><!-- form-group -->
+
+                                <!-- END BLOCK : cadastro_lista -->
+                                <div class="alert alert-danger alert-hide text-center">
+                                    {msg}
+                                </div>
+                            </div><!-- panel-body -->
+                            <div class="panel-footer text-right">
+                                <img alt="" src="images/loaders/loader6.gif" class="loader mr35 mb5 display-none">
+                                <button class="btn btn-default mr5">Editar</button>
+                            </div><!-- panel-footer -->
+
+                        </div><!-- panel -->
+                    </form>
+                </div>
+            </div><!-- row -->
+            <!-- END CADASTRO -->
+        </div><!-- tab-pane -->
+
+    </div><!-- tab-content --> 
+
+    <div class="mb20"></div> 
+</div>
+
+<script>
+      
+    function change_state(){
+        var uf=document.getElementById("estados").value;  
+        document.getElementById("cidades").innerText="Carregando...";
+        document.getElementById("cidades").disabled=true; 
+        fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/"+uf+"/municipios").then(response=>response.json()).then(response=>{
+                document.getElementById("cidades").innerHTML=null;
+                let obj= response;
+                console.log(obj);
+                let temp_list=[];
+                for(value in obj){
+                    document.getElementById("cidades").innerHTML+= "<option value='"+obj[value].nome+"'>"+ obj[value].nome+"</option> " ;
+                }
+                document.getElementById("cidades").disabled=false;
+                
+        }) 
+    } 
+</script>
